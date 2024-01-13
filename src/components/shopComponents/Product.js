@@ -19,7 +19,7 @@ export class product extends Component {
                     </div>
                     </a>
                     <div className="product-content">
-                        <h4><a href="product-single.html">ДЖЕМПЕР С АЖУРНЫМИ РУКАВАМИ</a></h4>
+                        <h4><a href="product-single">ДЖЕМПЕР С АЖУРНЫМИ РУКАВАМИ</a></h4>
                         <p className="price">10500 руб.</p>
                     </div>
                 </div>

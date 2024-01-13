@@ -71,7 +71,7 @@ function Slider() {
                 <h1>
                 СВЯЗАНО <br />   С ЛЮБОВЬЮ
                 </h1>
-                <a className="btn" href="shop.html">
+                <a className="btn" href="/shop">
                   МАГАЗИН
                 </a>
               </div>
@@ -90,7 +90,7 @@ function Slider() {
                 <h1>
                   НОВАЯ КОЛЛЕКЦИЯ <br /> 01.09.2023
                 </h1>
-                <a className="btn" href="shop.html">
+                <a className="btn" href="/shop">
                 МАГАЗИН
                 </a>
               </div>
@@ -109,7 +109,7 @@ function Slider() {
                 <h1>
                 Медленная красота в наших изделиях,  <br /> созданных мастерами вручную.
                 </h1>
-                <a className="btn" href="shop.html">
+                <a className="btn" href="/shop">
                   МАГАЗИН
                 </a>
               </div>

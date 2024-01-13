@@ -2,6 +2,8 @@ import React from "react";
 import "../css/header.css";
 import "../scss/templates/_navigation.scss";
 import "../scss/style.scss";
+import product1 from "../images/shop/cart/cart-1.jpg"
+import product2 from "../images/shop/cart/cart-2.jpg"
 
 function Header() {
   return (
@@ -17,7 +19,7 @@ function Header() {
             </div>
             <div className="col-md-4 col-xs-12 col-sm-4">
               <div className="logo text-center">
-                <a href="index.html">
+                <a href="/">
                   <svg
                     width="135px"
                     height="29px"
@@ -56,12 +58,12 @@ function Header() {
               <ul className="top-menu text-right list-inline">
                 <li className="dropdown cart-nav dropdown-slide">
 						<a href="#!" className="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-								className="tf-ion-android-cart"></i>Cart</a>
+								className="tf-ion-android-cart"></i>Корзина</a>
 						<div className="dropdown-menu cart-dropdown">
 
 							<div className="media">
 								<a className="pull-left" href="#!">
-									<img className="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
+									<img className="media-object" src={product1} alt="image" />
 								</a>
 								<div className="media-body">
 									<h4 className="media-heading"><a href="#!">Ladies Bag</a></h4>
@@ -75,7 +77,7 @@ function Header() {
 							</div>
 							<div className="media">
 								<a className="pull-left" href="#!">
-									<img className="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
+									<img className="media-object" src={product2} alt="image" />
 								</a>
 								<div className="media-body">
 									<h4 className="media-heading"><a href="#!">Ladies Bag</a></h4>
@@ -93,12 +95,11 @@ function Header() {
 								<span className="total-price">$1799.00</span>
 							</div>
 							<ul className="text-center cart-buttons">
-								<li><a href="cart.html" className="btn btn-small">View Cart</a></li>
-								<li><a href="checkout.html" className="btn btn-small btn-solid-border">Checkout</a></li>
+								<li><a href="/cart" className="btn btn-small">Корзина</a></li>
+								<li><a href="/delivery" className="btn btn-small btn-solid-border">Доставка</a></li>
 							</ul>
 						</div>
-
-					</li>
+                </li>
 
                 <li className="dropdown search dropdown-slide">
                   <a
@@ -121,11 +122,18 @@ function Header() {
                     </li>
                   </ul>
                 </li>
+                <li class="commonSelect">
+                  <select class="form-control">
+                    <option>RU</option>
+                    <option>AZ</option>
+                  </select>
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

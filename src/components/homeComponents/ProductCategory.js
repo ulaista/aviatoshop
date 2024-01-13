@@ -36,7 +36,6 @@ function ProductCategory() {
                             <div className="content">
                                 <h1>Изысканный Cтиль<br/></h1>
                                 <h2> Тонкая ручная работа, уникальный дизайн и натуральные волокна.</h2>
-                            
                             </div>
                         </a>	
                     </div>

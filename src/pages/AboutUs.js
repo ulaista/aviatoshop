@@ -39,7 +39,7 @@ function About() {
                 modi quis iste tempora non, suscipit repellendus labore
                 voluptatem dicta amet?
               </p>
-              <a href="contact.html" className="btn btn-main mt-20">
+              <a href="contact" className="btn btn-main mt-20">
                 Download Company Profile
               </a>
             </div>

@@ -37,9 +37,6 @@ function Footer() {
                   <a href="shop">МАГАЗИН</a>
                 </li>
                 <li>
-                  <a href="pricing.html">ЦЕНЫ</a>
-                </li>
-                <li>
                   <a href="contact">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
                 </li>
               </ul>

@@ -35,7 +35,33 @@ function NavigationBar() {
                 <a href="/shop">МАГАЗИН</a>
               </li>
 
+              <li class="dropdown dropdown-slide">
+                <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+                  role="button" aria-haspopup="true" aria-expanded="false">Страницы <span
+                    class="tf-ion-ios-arrow-down"></span></a>
+                <div class="dropdown-menu">
+                  <div class="row">
+
+                    
+                    <div class="col-lg-6 col-md-6 mb-sm-3">
+                      <ul>
+                        <li class="dropdown-header">Страницы</li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/contact">КОНТАКТЫ</a></li>
+                        <li><a href="/about-as">О НАС</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+					    </li>
+              
               <li className="dropdown ">
+                <a href="/delivery">Доставка</a>
+              </li>
+
+              {/* <li className="dropdown ">
                 <a href="/contact">КОНТАКТЫ</a>
               </li>
 
@@ -45,7 +71,7 @@ function NavigationBar() {
 
               <li className="dropdown ">
                 <a href="/faq">FAQ</a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

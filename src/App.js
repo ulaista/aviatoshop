@@ -24,6 +24,8 @@ import ShopPage from "./pages/ShopPage";
 import Page404 from "./pages/Page404";
 import HomePage from "./pages/HomePage";
 import ProductSingle from "./pages/ProductSingle";
+import Cart from "./pages/Cart";
+import Delivery from "./pages/Delivery";
 // Styles end
 
 class App extends React.Component {
@@ -41,6 +43,8 @@ class App extends React.Component {
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/404" element={<Page404 />} />
             <Route path="/product-single" element={<ProductSingle />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/delivery" element={<Delivery />} />
           </Routes>
         </Router>
 

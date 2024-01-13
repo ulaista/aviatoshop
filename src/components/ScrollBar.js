@@ -30,7 +30,7 @@ function ScrollBar() {
                   data-animation-in="fadeInUp"
                   data-delay-in=".8"
                   className="btn"
-                  href="shop.html"
+                  href="shop"
                 >
                   Shop Now
                 </a>
@@ -64,7 +64,7 @@ function ScrollBar() {
                   data-animation-in="fadeInUp"
                   data-delay-in=".8"
                   className="btn"
-                  href="shop.html"
+                  href="shop"
                 >
                   Shop Now
                 </a>
@@ -98,7 +98,7 @@ function ScrollBar() {
                   data-animation-in="fadeInUp"
                   data-delay-in=".8"
                   className="btn"
-                  href="shop.html"
+                  href="shop"
                 >
                   Shop Now
                 </a>

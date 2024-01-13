@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.55151ce2.css",
+    "main.js": "/static/js/main.d925dff6.js",
+    "static/media/4.jpg": "/static/media/4.9115deb4fd1690d59087.jpg",
+    "static/media/7.jpg": "/static/media/7.d8632c3745e5d0754552.jpg",
+    "static/media/slider-1.jpg": "/static/media/slider-1.7a81b5ca38d915797821.jpg",
+    "static/media/product-1.jpg": "/static/media/product-1.74a2aa20f44c66b6d839.jpg",
+    "static/media/slider-2.jpg": "/static/media/slider-2.8a8d8932048cb3d75a01.jpg",
+    "static/media/6.jpg": "/static/media/6.0e01649404797e6cf4d1.jpg",
+    "static/media/coming-soon-bg.jpg": "/static/media/coming-soon-bg.079d46a96eb709c51d6d.jpg",
+    "static/media/themefisher-font.svg?ug5hnh": "/static/media/themefisher-font.9be820e6fe5710738866.svg",
+    "static/media/themefisher-font.eot?ug5hnh": "/static/media/themefisher-font.eaab8c237d0ea57b57d0.eot",
+    "static/media/themefisher-font.woff?ug5hnh": "/static/media/themefisher-font.6af258e400caadccec9a.woff",
+    "static/media/themefisher-font.ttf?ug5hnh": "/static/media/themefisher-font.611b076f2f3193550f07.ttf",
+    "static/media/bg-1.jpg": "/static/media/bg-1.82b972d8243d21649dc3.jpg",
+    "static/media/slider-3.jpg": "/static/media/slider-3.08c228de617a35e340c4.jpg",
+    "static/media/product-3.jpg": "/static/media/product-3.162af5a8197e7f544915.jpg",
+    "static/media/product-2.jpg": "/static/media/product-2.95e0535ea9b25276bd7b.jpg",
+    "static/media/product-4.jpg": "/static/media/product-4.ca3f8eac2b13365b8e44.jpg",
+    "static/media/avater-1.jpg": "/static/media/avater-1.f96ca5bcab4e2874664c.jpg",
+    "static/media/team-1.jpg": "/static/media/team-1.afb0dd50fb27dd1ec1c2.jpg",
+    "static/media/product-5.jpg": "/static/media/product-5.efec6e413face6d8fd1a.jpg",
+    "static/media/product-6.jpg": "/static/media/product-6.97bcd0a25a8133414408.jpg",
+    "static/media/about.jpg": "/static/media/about.a75ebb5d3c2b335eaf1b.jpg",
+    "static/media/cart-3.jpg": "/static/media/cart-3.303eeca1a194c86738ec.jpg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.55151ce2.css.map": "/static/css/main.55151ce2.css.map",
+    "main.d925dff6.js.map": "/static/js/main.d925dff6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.55151ce2.css",
+    "static/js/main.d925dff6.js"
+  ]
+}
