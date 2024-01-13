@@ -20,7 +20,7 @@ function Cart() {
                             <table class="table">
                             <thead>
                                 <tr>
-                                <th class="">Item Name</th>
+                                <th class="">Название товара</th>
                                 <th class="">Item Price</th>
                                 <th class="">Actions</th>
                                 </tr>
