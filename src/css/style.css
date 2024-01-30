@@ -190,7 +190,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 }
 
 .section {
-  padding: 80px 0;
+  padding: 20px 0;
 }
 
 .title {
@@ -461,7 +461,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 }
 .tabCommon .nav-tabs a {
   border-radius: 0;
-  background: #f9f9f9;
+  background: #949494;
 }
 .tabCommon .nav-tabs a:hover {
   border: 1px solid transparent;
@@ -898,6 +898,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 
 .product-item {
   margin-bottom: 30px;
+  width: 200px;
 }
 .product-item .product-thumb {
   position: relative;
@@ -917,8 +918,8 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   font-weight: 300;
   display: inline-block;
 }
-.product-item .product-thumb:before {
-  transition: 0.3s all;
+.product-item img:hover {
+  /* transition: 0.3s all;
   opacity: 0;
   background: rgba(0, 0, 0, 0.6);
   content: "";
@@ -926,8 +927,11 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   top: 0;
   right: 0;
   left: 0;
-  bottom: 0;
+  bottom: 0; */
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.07);
 }
+
 .product-item .product-thumb .preview-meta {
   position: absolute;
   text-align: center;
@@ -1084,7 +1088,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 }
 
 .single-product {
-  padding: 60px 0 40px;
+  padding: 0px 0 40px;
 }
 .single-product .breadcrumb {
   background: transparent;
@@ -2286,3 +2290,6 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   color: #555;
 }
 
+/* .col-md-4{
+  width: 300px;
+} */

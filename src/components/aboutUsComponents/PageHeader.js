@@ -11,7 +11,7 @@ function PageHeader() {
                 <h1 className="page-name">О нас</h1>
                 <ol className="breadcrumb">
                   <li>
-                    <a href="index.html">Главная</a>
+                    <a href="/">Главная</a>
                   </li>
                   <li className="active">О нас</li>
                 </ol>

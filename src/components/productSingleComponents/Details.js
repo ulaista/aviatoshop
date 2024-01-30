@@ -73,7 +73,7 @@ function Details() {
                   <div className="post-comments">
                     <ul className="media-list comments-list m-bot-50 clearlist">
                       <li className="media">
-                        <a className="pull-left" href="#!">
+                        {/* <a className="pull-left" href="#!">
                           <img
                             className="media-object comment-avatar"
                             src={avater1}
@@ -81,7 +81,7 @@ function Details() {
                             width="50"
                             height="50"
                           />
-                        </a>
+                        </a> */}
 
                         <div className="media-body">
                           <div className="comment-info">
@@ -108,7 +108,7 @@ function Details() {
                       </li>
 
                       <li className="media">
-                        <a className="pull-left" href="#!">
+                        {/* <a className="pull-left" href="#!">
                           <img
                             className="media-object comment-avatar"
                             src={avater1}
@@ -116,7 +116,7 @@ function Details() {
                             width="50"
                             height="50"
                           />
-                        </a>
+                        </a> */}
 
                         <div className="media-body">
                           <div className="comment-info">
@@ -142,7 +142,7 @@ function Details() {
                       </li>
 
                       <li className="media">
-                        <a className="pull-left" href="#!">
+                        {/* <a className="pull-left" href="#!">
                           <img
                             className="media-object comment-avatar"
                             src={avater1}
@@ -150,7 +150,7 @@ function Details() {
                             width="50"
                             height="50"
                           />
-                        </a>
+                        </a> */}
 
                         <div className="media-body">
                           <div className="comment-info">

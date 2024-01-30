@@ -9,6 +9,8 @@ import product6 from "../../images/shop/single-products/product-6.jpg";
 import "../../plugins/bootstrap/css/bootstrap.min.css";
 import "../../plugins/bootstrap/js/bootstrap.min.js";
 
+import {Image} from 'antd';
+
 function Slider() {
   return (
     <div>
@@ -22,23 +24,23 @@ function Slider() {
             <div className="carousel-outer">
               <div className="carousel-inner ">
                 <div className="item active">
-                  <img src={product1} alt="" data-zoom-image={product1} />
+                  <Image src={product1} alt="" data-zoom-image={product1} />
                 </div>
                 <div className="item">
-                  <img src={product2} alt="" data-zoom-image={product2} />
+                  <Image src={product2} alt="" data-zoom-image={product2} />
                 </div>
 
                 <div className="item">
-                  <img src={product3} alt="" data-zoom-image={product3} />
+                  <Image src={product3} alt="" data-zoom-image={product3} />
                 </div>
                 <div className="item">
-                  <img src={product4} alt="" data-zoom-image={product4} />
+                  <Image src={product4} alt="" data-zoom-image={product4} />
                 </div>
                 <div className="item">
-                  <img src={product5} alt="" data-zoom-image={product5} />
+                  <Image src={product5} alt="" data-zoom-image={product5} />
                 </div>
                 <div className="item">
-                  <img src={product6} alt="" data-zoom-image={product6} />
+                  <Image src={product6} alt="" data-zoom-image={product6} />
                 </div>
               </div>
 

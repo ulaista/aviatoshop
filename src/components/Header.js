@@ -2,8 +2,8 @@ import React from "react";
 import "../css/header.css";
 import "../scss/templates/_navigation.scss";
 import "../scss/style.scss";
-import product1 from "../images/shop/cart/cart-1.jpg"
-import product2 from "../images/shop/cart/cart-2.jpg"
+// import product1 from "../images/shop/cart/cart-1.jpg";
+// import product2 from "../images/shop/cart/cart-2.jpg";
 
 function Header() {
   return (
@@ -35,7 +35,7 @@ function Header() {
                       fill="none"
                       fillRule="evenodd"
                       fontSize="28"
-                      fontFamily="AustinBold, Austin"
+                      fontFamily="Roboto, sans-serif"
                       fontWeight="bold"
                     >
                       <g
@@ -57,48 +57,84 @@ function Header() {
             <div className="col-md-4 col-xs-12 col-sm-4" id="searchBar">
               <ul className="top-menu text-right list-inline">
                 <li className="dropdown cart-nav dropdown-slide">
-						<a href="#!" className="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-								className="tf-ion-android-cart"></i>Корзина</a>
-						<div className="dropdown-menu cart-dropdown">
+                  <a
+                    href="/cart"
+                    // className="dropdown-toggle"
+                    // data-toggle="dropdown"
+                    // data-hover="dropdown"
+                  >
+                    <i className="tf-ion-android-cart"></i>Корзина
+                  </a>
+                  {/* <div className="dropdown-menu cart-dropdown">
+                    <div className="media">
+                      <a className="pull-left" href="#!">
+                        <img
+                          className="media-object"
+                          src={product1}
+                          alt="image"
+                        />
+                      </a>
+                      <div className="media-body">
+                        <h4 className="media-heading">
+                          <a href="#!">Ladies Bag</a>
+                        </h4>
+                        <div className="cart-price">
+                          <span>1 x</span>
+                          <span>1250.00</span>
+                        </div>
+                        <h5>
+                          <strong>$1200</strong>
+                        </h5>
+                      </div>
+                      <a href="#!" className="remove">
+                        <i className="tf-ion-close"></i>
+                      </a>
+                    </div>
+                    <div className="media">
+                      <a className="pull-left" href="#!">
+                        <img
+                          className="media-object"
+                          src={product2}
+                          alt="image"
+                        />
+                      </a>
+                      <div className="media-body">
+                        <h4 className="media-heading">
+                          <a href="#!">Ladies Bag</a>
+                        </h4>
+                        <div className="cart-price">
+                          <span>1 x</span>
+                          <span>1250.00</span>
+                        </div>
+                        <h5>
+                          <strong>$1200</strong>
+                        </h5>
+                      </div>
+                      <a href="#!" className="remove">
+                        <i className="tf-ion-close"></i>
+                      </a>
+                    </div>
 
-							<div className="media">
-								<a className="pull-left" href="#!">
-									<img className="media-object" src={product1} alt="image" />
-								</a>
-								<div className="media-body">
-									<h4 className="media-heading"><a href="#!">Ladies Bag</a></h4>
-									<div className="cart-price">
-										<span>1 x</span>
-										<span>1250.00</span>
-									</div>
-									<h5><strong>$1200</strong></h5>
-								</div>
-								<a href="#!" className="remove"><i className="tf-ion-close"></i></a>
-							</div>
-							<div className="media">
-								<a className="pull-left" href="#!">
-									<img className="media-object" src={product2} alt="image" />
-								</a>
-								<div className="media-body">
-									<h4 className="media-heading"><a href="#!">Ladies Bag</a></h4>
-									<div className="cart-price">
-										<span>1 x</span>
-										<span>1250.00</span>
-									</div>
-									<h5><strong>$1200</strong></h5>
-								</div>
-								<a href="#!" className="remove"><i className="tf-ion-close"></i></a>
-							</div>
-
-							<div className="cart-summary">
-								<span>Total</span>
-								<span className="total-price">$1799.00</span>
-							</div>
-							<ul className="text-center cart-buttons">
-								<li><a href="/cart" className="btn btn-small">Корзина</a></li>
-								<li><a href="/delivery" className="btn btn-small btn-solid-border">Доставка</a></li>
-							</ul>
-						</div>
+                    <div className="cart-summary">
+                      <span>Total</span>
+                      <span className="total-price">$1799.00</span>
+                    </div>
+                    <ul className="text-center cart-buttons">
+                      <li>
+                        <a href="/cart" className="btn btn-small">
+                          Корзина
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/delivery"
+                          className="btn btn-small btn-solid-border"
+                        >
+                          Доставка
+                        </a>
+                      </li>
+                    </ul>
+                  </div> */}
                 </li>
 
                 <li className="dropdown search dropdown-slide">
@@ -133,7 +169,6 @@ function Header() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

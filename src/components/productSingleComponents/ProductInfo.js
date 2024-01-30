@@ -58,14 +58,14 @@ function ProductInfo() {
             <span>Categories:</span>
             <ul>
               <li>
-                <a href="product-single.html">Products</a>
+                <a href="/product-single">Products</a>
               </li>
               <li>
-                <a href="product-single.html">Soap</a>
+                <a href="/product-single">Soap</a>
               </li>
             </ul>
           </div>
-          <a href="cart.html" className="btn btn-main mt-20">
+          <a href="/cart" className="btn btn-main mt-20">
             Add To Cart
           </a>
         </div>

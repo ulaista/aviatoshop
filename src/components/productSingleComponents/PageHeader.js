@@ -7,10 +7,10 @@ function PageHeader() {
         <div className="col-md-6">
           <ol className="breadcrumb">
             <li>
-              <a href="index.html">Главная</a>
+              <a href="/">Главная</a>
             </li>
             <li>
-              <a href="shop.html">Магазин</a>
+              <a href="/shop">Магазин</a>
             </li>
             <li className="active">Продукт</li>
           </ol>
