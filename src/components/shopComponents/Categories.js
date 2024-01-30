@@ -1,22 +1,24 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function Categories() {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="col-md-3">
         <div className="widget">
-          <h4 className="widget-title">Short By</h4>
+          <h4 className="widget-title">{t('short_by')}</h4>
           <form method="post" action="#">
             <select className="form-control">
-              <option>Man</option>
-              <option>Women</option>
-              <option>Accessories</option>
-              <option>Shoes</option>
+              <option>{t('man')}</option>
+              <option>{t('women')}</option>
+              <option>{t('accessories')}</option>
+              <option>{t('shoes')}</option>
             </select>
           </form>
         </div>
         <div className="widget product-category">
-          <h4 className="widget-title">Categories</h4>
+          <h4 className="widget-title">{t('category')}</h4>
           <div
             className="panel-group commonAccordion"
             id="accordion"
@@ -35,7 +37,7 @@ function Categories() {
                     aria-expanded="false"
                     aria-controls="collapseOne"
                   >
-                    Shoes
+                    {t('shoes')}
                   </a>
                 </h4>
               </div>
@@ -48,13 +50,13 @@ function Categories() {
                 <div className="panel-body">
                   <ul>
                     <li>
-                      <a href="#!">Brand & Twist</a>
+                      <a href="#!">{t("brand_&_twist")}</a>
                     </li>
                     <li>
-                      <a href="#!">Shoe Color</a>
+                      <a href="#!">{t('shoe_color')}</a>
                     </li>
                     <li>
-                      <a href="#!">Shoe Color</a>
+                      <a href="#!">{t('shoe_color')}</a>
                     </li>
                   </ul>
                 </div>
@@ -72,7 +74,7 @@ function Categories() {
                     aria-expanded="false"
                     aria-controls="collapseTwo"
                   >
-                    Duty Wear
+                    {t('duty_wear')}
                   </a>
                 </h4>
               </div>
@@ -85,13 +87,13 @@ function Categories() {
                 <div className="panel-body">
                   <ul>
                     <li>
-                      <a href="#!">Brand & Twist</a>
+                      <a href="#!">{t("brand_&_twist")}</a>
                     </li>
                     <li>
-                      <a href="#!">Shoe Color</a>
+                      <a href="#!">{t('shoe_color')}</a>
                     </li>
                     <li>
-                      <a href="#!">Shoe Color</a>
+                      <a href="#!">{t('shoe_color')}</a>
                     </li>
                   </ul>
                 </div>
@@ -109,7 +111,7 @@ function Categories() {
                     aria-expanded="false"
                     aria-controls="collapseThree"
                   >
-                    WorkOut Shoes
+                    {t('workout_shoes')}
                   </a>
                 </h4>
               </div>
@@ -122,16 +124,16 @@ function Categories() {
                 <div className="panel-body">
                   <ul>
                     <li>
-                      <a href="#!">Brand & Twist</a>
+                      <a href="#!">{t("brand_&_twist")}</a>
                     </li>
                     <li>
-                      <a href="#!">Shoe Color</a>
+                      <a href="#!">{t('shoe_color')}</a>
                     </li>
                     <li>
-                      <a href="#!">Gladian Shoes</a>
+                      <a href="#!">{t("gladian_shoes")}</a>
                     </li>
                     <li>
-                      <a href="#!">Swis Shoes</a>
+                      <a href="#!">{t("swis_shoes")}</a>
                     </li>
                   </ul>
                 </div>

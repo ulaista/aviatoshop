@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
+  const { t } = useTranslation();
   return (
     <div>
       <footer className="footer section text-center">
@@ -31,13 +33,13 @@ function Footer() {
               </ul>
               <ul className="footer-menu text-uppercase">
                 <li>
-                  <a href="contact">КОНТАКТЫ</a>
+                  <a href="contact">{t('contact')}</a>
                 </li>
                 <li>
-                  <a href="shop">МАГАЗИН</a>
+                  <a href="shop">{t('shop')}</a>
                 </li>
                 <li>
-                  <a href="contact">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
+                  <a href="contact">{t('polit')}</a>
                 </li>
               </ul>
             </div>

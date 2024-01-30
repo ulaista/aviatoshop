@@ -4,8 +4,10 @@ import aboutImg from "../images/about/about.jpg";
 import PageHeader from "../components/aboutUsComponents/PageHeader";
 import AboutVideo from "../components/aboutUsComponents/AboutVideo";
 import TeamMembers from "../components/aboutUsComponents/TeamMembers";
+import { useTranslation } from "react-i18next";
 
 function About() {
+  const { t } = useTranslation();
   return (
     <div>
 
@@ -21,7 +23,7 @@ function About() {
               />
             </div>
             <div className="col-md-6">
-              <h2 className="mt-40">About Our Shop</h2>
+              <h2 className="mt-40">{t('about')}{' '} {t('shop')}</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
                 enim, accusantium repellat ex autem numquam iure officiis facere

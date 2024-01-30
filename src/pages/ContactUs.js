@@ -1,7 +1,9 @@
 import React from "react";
 import PageHeader from "../components/contactUsComponents/PageHeader";
+import { useTranslation } from "react-i18next";
 
 function ContactUs() {
+  const { t } = useTranslation();
   return (
     <div>
       <PageHeader />
@@ -15,7 +17,7 @@ function ContactUs() {
                   <div className="form-group">
                     <input
                       type="text"
-                      placeholder="Имя"
+                      placeholder={t('full_name')}
                       className="form-control"
                       name="name"
                       id="name"
@@ -25,7 +27,7 @@ function ContactUs() {
                   <div className="form-group">
                     <input
                       type="email"
-                      placeholder="Email"
+                      placeholder={t('email')}
                       className="form-control"
                       name="email"
                       id="email"
@@ -35,7 +37,7 @@ function ContactUs() {
                   <div className="form-group">
                     <input
                       type="text"
-                      placeholder="Предмет"
+                      placeholder={t('object')}
                       className="form-control"
                       name="subject"
                       id="subject"
@@ -45,7 +47,7 @@ function ContactUs() {
                   <div className="form-group">
                     <textarea
                       rows="6"
-                      placeholder="Сообщение"
+                      placeholder={t('message')}
                       className="form-control"
                       name="message"
                       id="message"
@@ -65,28 +67,28 @@ function ContactUs() {
                       type="submit"
                       id="contact-submit"
                       className="btn btn-transparent"
-                      value="Отправить"
+                      value={t('send')}
                     />
                   </div>
                 </form>
               </div>
 
-              <div className="contact-details col-md-6 ">
+              <div className="contact-details col-md-6">
                 <div className="google-map">
                   <div id="map"></div>
                 </div>
                 <ul className="contact-short-info">
                   <li>
                     <i className="tf-ion-ios-home"></i>
-                    <span>г.Санкт-Петербург, ул.Большая Конюшенная, д.9</span>
+                    <span>{t('location')}</span>
                   </li>
                   <li>
                     <i className="tf-ion-android-phone-portrait"></i>
-                    <span>+7-911-813-8879</span>
+                    <span><a href="tel:+79118138879">+7-911-813-8879</a></span>
                   </li>
                   <li>
                     <i className="tf-ion-android-mail"></i>
-                    <span>Email: knitloft@mail.ru</span>
+                    <span>{t('email')}: knitloft@mail.ru</span>
                   </li>
                 </ul>
                 <div className="social-icon">

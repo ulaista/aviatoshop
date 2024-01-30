@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function ProductInfo() {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="col-md-7">
@@ -21,7 +23,7 @@ function ProductInfo() {
             magnam. Debitis, explicabo.
           </p>
           <div className="color-swatches">
-            <span>color:</span>
+            <span>{t('color')}</span>
             <ul>
               <li>
                 <a href="#!" className="swatch-violet"></a>
@@ -35,7 +37,7 @@ function ProductInfo() {
             </ul>
           </div>
           <div className="product-size">
-            <span>Size:</span>
+            <span>{t('size')}</span>
             <select className="form-control">
               <option>S</option>
               <option>M</option>
@@ -44,7 +46,7 @@ function ProductInfo() {
             </select>
           </div>
           <div className="product-quantity">
-            <span>Quantity:</span>
+            <span>{t('quantity')}</span>
             <div className="product-quantity-slider">
               <input
                 id="product-quantity"
@@ -55,10 +57,10 @@ function ProductInfo() {
             </div>
           </div>
           <div className="product-category">
-            <span>Categories:</span>
+            <span>{t('category')}</span>
             <ul>
               <li>
-                <a href="/product-single">Products</a>
+                <a href="/product-single">{t('product')}</a>
               </li>
               <li>
                 <a href="/product-single">Soap</a>
@@ -66,7 +68,7 @@ function ProductInfo() {
             </ul>
           </div>
           <a href="/cart" className="btn btn-main mt-20">
-            Add To Cart
+            {t('add_cart')}
           </a>
         </div>
       </div>

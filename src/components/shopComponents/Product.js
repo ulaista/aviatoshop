@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import product1 from "../../images/shop/products/product-1.jpg";
+import { useTranslation } from "react-i18next";
 
-export class product extends Component {
-  render() {
+ function Product(){
+  // render() {
+    const { t } = useTranslation();
     return (
       <div>
         <div className="col-md-4">
@@ -20,7 +22,7 @@ export class product extends Component {
             </a>
             <div className="product-content">
               <h4>
-                <a href="product-single">ДЖЕМПЕР С АЖУРНЫМИ РУКАВАМИ</a>
+                <a href="product-single">{t('product_name')}</a>
               </h4>
               <p className="price">10500 руб.</p>
             </div>
@@ -28,7 +30,7 @@ export class product extends Component {
         </div>
       </div>
     );
-  }
+  // }
 }
 
-export default product;
+export default Product;

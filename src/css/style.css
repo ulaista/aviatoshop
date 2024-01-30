@@ -2200,6 +2200,12 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   margin-right: 10px;
 }
 
+.contact-details .contact-short-info li a{
+  color: #555
+}
+.contact-number a{
+  color: #555
+}
 .social-icon {
   margin-top: 20px;
 }
@@ -2293,3 +2299,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 /* .col-md-4{
   width: 300px;
 } */
+
+.commonAccordion .panel .panel-title a:hover{
+  color: #333;
+}

@@ -1,13 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function VievUsInst() {
+  const { t } =useTranslation();
   return (
     <div>
       <section className="section instagram-feed">
         <div className="container">
           <div className="row">
             <div className="title">
-              <h2>найти нас в instagram</h2>
+              <h2>{t('posts')}</h2>
             </div>
           </div>
           <div className="row">

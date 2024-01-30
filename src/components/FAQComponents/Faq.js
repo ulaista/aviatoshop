@@ -1,13 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function Faq() {
+  const { t } = useTranslation();
   return (
     <div>
       <section className="page-wrapper">
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <h2>Frequently Asked Questions</h2>
+              <h2>{t('faq_long')}</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi,
                 repudiandae.

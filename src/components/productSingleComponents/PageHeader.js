@@ -1,18 +1,20 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function PageHeader() {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="row">
         <div className="col-md-6">
           <ol className="breadcrumb">
             <li>
-              <a href="/">Главная</a>
+              <a href="/">{t('main')}</a>
             </li>
             <li>
-              <a href="/shop">Магазин</a>
+              <a href="/shop">{t('shop')}</a>
             </li>
-            <li className="active">Продукт</li>
+            <li className="active">{t('product')}</li>
           </ol>
         </div>
       </div>

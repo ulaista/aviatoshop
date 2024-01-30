@@ -1,7 +1,9 @@
 import React from 'react'
 import PageHeader from '../components/deliveryComponents/PageHeader'
+import { useTranslation } from 'react-i18next';
 
 function Delivery() {
+  const { t } = useTranslation();
   return (
     <div>
       <PageHeader />
@@ -11,10 +13,10 @@ function Delivery() {
             <div class="row">
               <div class="col-md-8">
                 <div class="block billing-details">
-                  <h4 class="widget-title">Billing Details</h4>
+                  <h4 class="widget-title">{t('bil_details')}</h4>
                   <form class="checkout-form">
                     <div class="form-group">
-                      <label for="full_name">Full Name</label>
+                      <label for="full_name">{t('full_name')}</label>
                       <input
                         type="text"
                         class="form-control"
@@ -23,7 +25,7 @@ function Delivery() {
                       ></input>
                     </div>
                     <div class="form-group">
-                      <label for="user_address">Address</label>
+                      <label for="user_address">{t('address')}</label>
                       <input
                         type="text"
                         class="form-control"
@@ -33,7 +35,7 @@ function Delivery() {
                     </div>
                     <div class="checkout-country-code clearfix">
                       <div class="form-group">
-                        <label for="user_post_code">Zip Code</label>
+                        <label for="user_post_code">{t('zip_code')}</label>
                         <input
                           type="text"
                           class="form-control"
@@ -43,7 +45,7 @@ function Delivery() {
                         ></input>
                       </div>
                       <div class="form-group">
-                        <label for="user_city">City</label>
+                        <label for="user_city">{t('city')}</label>
                         <input
                           type="text"
                           class="form-control"
@@ -54,7 +56,7 @@ function Delivery() {
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="user_country">Country</label>
+                      <label for="user_country">{t('country')}</label>
                       <input
                         type="text"
                         class="form-control"
@@ -66,7 +68,7 @@ function Delivery() {
                     href="confirmation.html"
                     class="btn btn-main mt-20"
                     >
-                     Place Order
+                     {t('place_order')}
                     </a>
                   </form>
                 </div>

@@ -2,8 +2,12 @@ import React from "react";
 import "../scss/templates/_navigation.scss";
 import "../scss/home.scss";
 import "../scss/_common.scss";
+import { useTranslation } from 'react-i18next';
+
 
 function NavigationBar() {
+  const { t } = useTranslation();
+
   return (
     <section className="menu">
       <nav className="navbar navigation">
@@ -28,11 +32,11 @@ function NavigationBar() {
           <div id="navbar" className="navbar-collapse collapse text-center">
             <ul className="nav navbar-nav">
               <li className="dropdown ">
-                <a href="/">Главная</a>
+                <a href="/">{t('main')}</a>
               </li>
 
               <li className="dropdown ">
-                <a href="/shop">МАГАЗИН</a>
+                <a href="/shop">{t('shop')}</a>
               </li>
 
               {/* <li class="dropdown dropdown-slide">
@@ -58,19 +62,19 @@ function NavigationBar() {
 					    </li> */}
               
               <li className="dropdown ">
-                <a href="/delivery">Доставка</a>
+                <a href="/delivery">{t('delivery')}</a>
               </li>
 
               <li className="dropdown ">
-                <a href="/contact">КОНТАКТЫ</a>
+                <a href="/contact">{t('contact')}</a>
               </li>
 
               <li className="dropdown ">
-                <a href="/about-as">О НАС</a>
+                <a href="/about-as">{t('about')}</a>
               </li>
 
               <li className="dropdown ">
-                <a href="/faq">FAQ</a>
+                <a href="/faq">{t('faq')}</a>
               </li>
             </ul>
           </div>

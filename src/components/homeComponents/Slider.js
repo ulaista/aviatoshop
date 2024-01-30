@@ -12,6 +12,7 @@ import $ from "../../plugins/jquery/dist/jquery.js";
 import "../../plugins/slick/slick.min.js";
 
 function Slider() {
+  
   useEffect(() => {
     const slider = $(".hero-slider").slick({
       centerMode: true, // Center the slides

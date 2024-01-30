@@ -1,11 +1,26 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import "../css/header.css";
 import "../scss/templates/_navigation.scss";
 import "../scss/style.scss";
 // import product1 from "../images/shop/cart/cart-1.jpg";
 // import product2 from "../images/shop/cart/cart-2.jpg";
+import useLocalStorage from '../hooks/use-localstorage';
+import i18n from '../i18n';
 
 function Header() {
+  const { t } = useTranslation();
+  const [language, setLanguage] = useLocalStorage('language', 'ru');
+
+  const handleLenguageChange = () => {
+      if (language === 'ru') {
+          i18n.changeLanguage('az');
+          setLanguage('az');
+      } else if (language === 'az') {
+          i18n.changeLanguage('ru');
+          setLanguage('ru');
+      }
+  };
   return (
     <div>
       <section className="top-header">
@@ -14,7 +29,7 @@ function Header() {
             <div className="col-md-4 col-xs-12 col-sm-4">
               <div className="contact-number">
                 <i className="tf-ion-ios-telephone"></i>
-                <span>+7-911-813-8879</span>
+                <span><a href="tel:+79118138879">+7-911-813-8879</a></span>
               </div>
             </div>
             <div className="col-md-4 col-xs-12 col-sm-4">
@@ -63,7 +78,7 @@ function Header() {
                     // data-toggle="dropdown"
                     // data-hover="dropdown"
                   >
-                    <i className="tf-ion-android-cart"></i>Корзина
+                    <i className="tf-ion-android-cart"></i>{t('cart')}
                   </a>
                   {/* <div className="dropdown-menu cart-dropdown">
                     <div className="media">
@@ -144,7 +159,7 @@ function Header() {
                     data-toggle="dropdown"
                     data-hover="dropdown"
                   >
-                    <i className="tf-ion-ios-search-strong"></i> Поиск
+                    <i className="tf-ion-ios-search-strong"></i> {t('search')}
                   </a>
                   <ul className="dropdown-menu search-dropdown">
                     <li>
@@ -152,16 +167,16 @@ function Header() {
                         <input
                           type="search"
                           className="form-control"
-                          placeholder="Search..."
+                          placeholder={t('search')}
                         ></input>
                       </form>
                     </li>
                   </ul>
                 </li>
                 <li class="commonSelect">
-                  <select class="form-control">
-                    <option>RU</option>
-                    <option>AZ</option>
+                  <select class="form-control" onChange={handleLenguageChange}>
+                    <option>{language === 'ru'}RU</option>
+                    <option>{language === 'az'}AZ</option>
                   </select>
                 </li>
               </ul>
