@@ -1,80 +1,85 @@
-import React from 'react'
-import PageHeader from '../components/cartComponents/PageHeader'
-import product1 from "../images/shop/cart/cart-1.jpg"
-import product2 from "../images/shop/cart/cart-2.jpg"
-import product3 from "../images/shop/cart/cart-3.jpg"
+import React from "react";
+import PageHeader from "../components/cartComponents/PageHeader";
+import { useCart } from "../CartContext";
+import { useTranslation } from "react-i18next";
+import { getLocalizedField } from '../utils/localizedfield';
 
 
 function Cart() {
+
+  const { t } = useTranslation();
+  const { cart, dispatch } = useCart();
+  const photos = "http://localhost:8000/photos";
+
+  const removeFromCart = (id) => {
+    dispatch({ type: "REMOVE_ITEM", payload: id });
+  };
+
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
+
   return (
     <div>
-        <PageHeader />
-        <div class="page-wrapper">
-            <div class="cart shopping">
-                <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                    <div class="block">
-                        <div class="product-list">
-                        <form method="post">
-                            <table class="table">
-                            <thead>
-                                <tr>
-                                <th class="">Название товара</th>
-                                <th class="">Item Price</th>
-                                <th class="">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="">
+      <PageHeader />
+      <div class="page-wrapper">
+        <div class="cart shopping">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <div class="block">
+                  <div class="product-list">
+                    <form method="post">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th class="">{t('name_of_product')}</th>
+                            <th class="">{t('item_quantity')}</th>
+                            <th class="">{t('total_price')}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {cart.map((item) => {
+                            const imageUrl = `${photos}${item.main_photo}`;
+                            return (
+                              <tr class="" key={item.id}>
                                 <td class="">
-                                    <div class="product-info">
-                                    <img width="80" src={product1} alt="" />
-                                    <a href="#!">Sunglass</a>
-                                    </div>
+                                  <div class="product-info">
+                                    <img width="80" src={imageUrl} alt="" />
+                                    <a href="#!">{getLocalizedField(item, "title")}</a>
+                                  </div>
                                 </td>
-                                <td class="">$200.00</td>
+                                <td class="">{item.quantity}</td>
+                                <td class="">${item.price * item.quantity}</td>
                                 <td class="">
-                                    <a class="product-remove" href="#!">Remove</a>
+                                  <button
+                                    class="product-remove"
+                                    onClick={() => removeFromCart(item.id)}
+                                  >
+                                    {t("delete")}
+                                  </button>
                                 </td>
-                                </tr>
-                                <tr class="">
-                                <td class="">
-                                    <div class="product-info">
-                                    <img width="80" src={product2} alt="" />
-                                    <a href="#!">Airspace</a>
-                                    </div>
-                                </td>
-                                <td class="">$200.00</td>
-                                <td class="">
-                                    <a class="product-remove" href="#!">Remove</a>
-                                </td>
-                                </tr>
-                                <tr class="">
-                                <td class="">
-                                    <div class="product-info">
-                                    <img width="80" src={product3} alt="" />
-                                    <a href="#!">Bingo</a>
-                                    </div>
-                                </td>
-                                <td class="">$200.00</td>
-                                <td class="">
-                                    <a class="product-remove" href="#!">Remove</a>
-                                </td>
-                                </tr>
-                            </tbody>
-                            </table>
-                            <a href="delivery" class="btn btn-main pull-right">Checkout</a>
-                        </form>
-                        </div>
-                    </div>
-                    </div>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </form>
+                    <button class="btn btn-main pull-left" onClick={clearCart}>
+                      {t('void_cart')}
+                    </button>
+                    <a href="delivery" class="btn btn-main pull-right">
+                      {t('arrange')}
+                    </a>
+                  </div>
                 </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Cart
+export default Cart;

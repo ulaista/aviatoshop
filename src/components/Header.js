@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import "../css/header.css";
 import "../scss/templates/_navigation.scss";
@@ -21,6 +21,15 @@ function Header() {
           setLanguage('ru');
       }
   };
+  const selectRef = useRef(null);
+
+  useEffect(() => {
+    const check_lang = language === 'ru' ? 'ru' : 'az';
+    if (selectRef.current) {
+      selectRef.current.value = check_lang;
+    }
+  }, [language]);
+
   return (
     <div>
       <section className="top-header">
@@ -80,84 +89,14 @@ function Header() {
                   >
                     <i className="tf-ion-android-cart"></i>{t('cart')}
                   </a>
-                  {/* <div className="dropdown-menu cart-dropdown">
-                    <div className="media">
-                      <a className="pull-left" href="#!">
-                        <img
-                          className="media-object"
-                          src={product1}
-                          alt="image"
-                        />
-                      </a>
-                      <div className="media-body">
-                        <h4 className="media-heading">
-                          <a href="#!">Ladies Bag</a>
-                        </h4>
-                        <div className="cart-price">
-                          <span>1 x</span>
-                          <span>1250.00</span>
-                        </div>
-                        <h5>
-                          <strong>$1200</strong>
-                        </h5>
-                      </div>
-                      <a href="#!" className="remove">
-                        <i className="tf-ion-close"></i>
-                      </a>
-                    </div>
-                    <div className="media">
-                      <a className="pull-left" href="#!">
-                        <img
-                          className="media-object"
-                          src={product2}
-                          alt="image"
-                        />
-                      </a>
-                      <div className="media-body">
-                        <h4 className="media-heading">
-                          <a href="#!">Ladies Bag</a>
-                        </h4>
-                        <div className="cart-price">
-                          <span>1 x</span>
-                          <span>1250.00</span>
-                        </div>
-                        <h5>
-                          <strong>$1200</strong>
-                        </h5>
-                      </div>
-                      <a href="#!" className="remove">
-                        <i className="tf-ion-close"></i>
-                      </a>
-                    </div>
-
-                    <div className="cart-summary">
-                      <span>Total</span>
-                      <span className="total-price">$1799.00</span>
-                    </div>
-                    <ul className="text-center cart-buttons">
-                      <li>
-                        <a href="/cart" className="btn btn-small">
-                          Корзина
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/delivery"
-                          className="btn btn-small btn-solid-border"
-                        >
-                          Доставка
-                        </a>
-                      </li>
-                    </ul>
-                  </div> */}
                 </li>
 
                 <li className="dropdown search dropdown-slide">
                   <a
                     href="#!"
-                    className="dropdown-toggle"
-                    data-toggle="dropdown"
-                    data-hover="dropdown"
+                    // className="dropdown-toggle"
+                    // data-toggle="dropdown"
+                    // data-hover="dropdown"
                   >
                     <i className="tf-ion-ios-search-strong"></i> {t('search')}
                   </a>
@@ -174,9 +113,9 @@ function Header() {
                   </ul>
                 </li>
                 <li class="commonSelect">
-                  <select class="form-control" onChange={handleLenguageChange}>
-                    <option>{language === 'ru'}RU</option>
-                    <option>{language === 'az'}AZ</option>
+                  <select id="sel" ref={selectRef} class="form-control" onChange={handleLenguageChange}>
+                    <option value='ru'>RU</option>
+                    <option value='az'>AZ</option>
                   </select>
                 </li>
               </ul>

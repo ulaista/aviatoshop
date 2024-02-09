@@ -1,9 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+
+
 function ProductInfo() {
   const { t } = useTranslation();
+
   return (
+    <>
     <div>
       <div className="col-md-7">
         <div className="single-product-details">
@@ -73,6 +77,7 @@ function ProductInfo() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

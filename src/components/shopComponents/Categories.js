@@ -5,18 +5,6 @@ function Categories() {
   const { t } = useTranslation();
   return (
     <div>
-      <div className="col-md-3">
-        <div className="widget">
-          <h4 className="widget-title">{t('short_by')}</h4>
-          <form method="post" action="#">
-            <select className="form-control">
-              <option>{t('man')}</option>
-              <option>{t('women')}</option>
-              <option>{t('accessories')}</option>
-              <option>{t('shoes')}</option>
-            </select>
-          </form>
-        </div>
         <div className="widget product-category">
           <h4 className="widget-title">{t('category')}</h4>
           <div
@@ -142,7 +130,6 @@ function Categories() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

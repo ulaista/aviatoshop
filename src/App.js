@@ -5,12 +5,15 @@ import {
   Route,
   Link,
   Routes,
+  BrowserRouter,
 } from "react-router-dom";
 import Header from "./components/Header";
 import NavigationBar from "./components/NavigationBar";
 import About from "./pages/AboutUs";
 import Footer from "./components/Footer";
 import ContactUs from "./pages/ContactUs";
+import { ProductsProvider } from "./ProductsContext";
+import { CartProvider } from "./CartContext";
 
 // Styles start
 import "./plugins/themefisher-font/style.css";
@@ -32,9 +35,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="name">
+        <BrowserRouter>
         <Header />
         <NavigationBar />
-        <Router>
+        <ProductsProvider>
+        <CartProvider>
+
+        {/* <Router> */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about-as" element={<About />} />
@@ -46,9 +53,11 @@ class App extends React.Component {
             <Route path="/cart" element={<Cart />} />
             <Route path="/delivery" element={<Delivery />} />
           </Routes>
-        </Router>
-
+        {/* </Router> */}
+        </CartProvider>
+        </ProductsProvider>
         <Footer />
+        </BrowserRouter>
       </div>
     );
   }

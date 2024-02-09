@@ -5,6 +5,7 @@ import ProductInfo from "../components/productSingleComponents/ProductInfo";
 import Details from "../components/productSingleComponents/Details";
 import Product from "../components/shopComponents/Product";
 import { useTranslation } from "react-i18next";
+import { CartProvider } from "../CartContext";
 
 function ProductSingle() {
   const { t } = useTranslation();
@@ -15,7 +16,10 @@ function ProductSingle() {
           <div className="row mt-20">
             <PageHeader />
             <Slider />
-            <ProductInfo />
+            <CartProvider>
+              <ProductInfo />
+            </CartProvider>
+
           </div>
           <Details />
           <div className="title text-center">

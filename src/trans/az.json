@@ -49,5 +49,11 @@
     "shoe_color": "Ayaqqabı rəngi",
     "brand_&_twist": "Marka və punchline",
     "gladian_shoes": "Gladiator çəkmələri",
-    "swis_shoes": "İsveçrə çəkmələri"
+    "swis_shoes": "İsveçrə çəkmələri",
+    "delete": "Silin",
+    "name_of_product": "Məhsulun adı",
+    "item_quantity": "Məhsulun miqdarı",
+    "total_price": "Ümumi qiymət",
+    "void_cart": "Qutuni boşaltın",
+    "arrange": "Rəsmiləşdirin"
 }

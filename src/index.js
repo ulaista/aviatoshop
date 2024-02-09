@@ -9,5 +9,6 @@ import "./scss/style.scss";
 import "./scss/templates/_products.scss";
 import "./scss/templates/_slider.scss";
 
+
 const app = ReactDOMClient.createRoot(document.getElementById("app"));
 app.render(<App />);

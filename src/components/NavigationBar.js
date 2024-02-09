@@ -3,6 +3,8 @@ import "../scss/templates/_navigation.scss";
 import "../scss/home.scss";
 import "../scss/_common.scss";
 import { useTranslation } from 'react-i18next';
+import {Link} from 'react-router-dom';
+
 
 
 function NavigationBar() {
@@ -32,11 +34,11 @@ function NavigationBar() {
           <div id="navbar" className="navbar-collapse collapse text-center">
             <ul className="nav navbar-nav">
               <li className="dropdown ">
-                <a href="/">{t('main')}</a>
+                <Link to="/">{t('main')}</Link>
               </li>
 
               <li className="dropdown ">
-                <a href="/shop">{t('shop')}</a>
+                <Link to="/shop">{t('shop')}</Link>
               </li>
 
               {/* <li class="dropdown dropdown-slide">
