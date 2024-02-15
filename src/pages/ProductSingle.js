@@ -5,10 +5,14 @@ import ProductInfo from "../components/productSingleComponents/ProductInfo";
 import Details from "../components/productSingleComponents/Details";
 import Product from "../components/shopComponents/Product";
 import { useTranslation } from "react-i18next";
-import { CartProvider } from "../CartContext";
+import { useParams } from 'react-router-dom';
+
+// import { CartProvider } from "../CartContext";
 
 function ProductSingle() {
   const { t } = useTranslation();
+  const { id } = useParams();
+
   return (
     <div>
       <section className="single-product">
@@ -16,10 +20,7 @@ function ProductSingle() {
           <div className="row mt-20">
             <PageHeader />
             <Slider />
-            <CartProvider>
-              <ProductInfo />
-            </CartProvider>
-
+            <ProductInfo productId={id} />
           </div>
           <Details />
           <div className="title text-center">

@@ -30,7 +30,7 @@ iframe {
 }
 
 a, a:focus, a:hover {
-  width: 130px;
+  /* width: 130px; */
   text-decoration: none;
   outline: 0;
   color: #ffffff;
@@ -489,6 +489,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   font-size: 14px;
   text-transform: uppercase;
   padding: 10px 10px;
+  color: #555;
 }
 .commonAccordion .panel .panel-title a:before, .commonAccordion-2 .panel .panel-title a:before {
   color: #555;
@@ -900,14 +901,15 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   margin-bottom: 30px;
   width: 200px;
 }
-.product-item .product-thumb {
+.product-item .product-thumbi {
   position: relative;
 }
-.product-item .product-thumb img {
+.product-item .product-thumbi img {
   width: 100%;
-  height: auto;
+  height: 250px;
+  object-fit: cover;
 }
-.product-item .product-thumb .bage {
+.product-item .product-thumbi .bage {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -932,7 +934,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   transform: scale(1.07);
 }
 
-.product-item .product-thumb .preview-meta {
+.product-item .product-thumbi .preview-meta {
   position: absolute;
   text-align: center;
   bottom: 0;
@@ -943,10 +945,10 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   transition: 0.2s;
   transform: translateY(10px);
 }
-.product-item .product-thumb .preview-meta li {
+.product-item .product-thumbi .preview-meta li {
   display: inline-block;
 }
-.product-item .product-thumb .preview-meta li a, .product-item .product-thumb .preview-meta li span {
+.product-item .product-thumb .preview-meta li a, .product-item .product-thumbi .preview-meta li span {
   background: #fff;
   padding: 10px 0px;
   cursor: pointer;
@@ -955,11 +957,11 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   transition: 0.2s all;
   width: 50px;
 }
-.product-item .product-thumb .preview-meta li a:hover, .product-item .product-thumb .preview-meta li span:hover {
+.product-item .product-thumbi .preview-meta li a:hover, .product-item .product-thumbi .preview-meta li span:hover {
   background: #000;
   color: #fff;
 }
-.product-item:hover .product-thumb:before {
+.product-item:hover .product-thumbi:before {
   opacity: 1;
 }
 .product-item:hover .preview-meta {
@@ -2303,3 +2305,12 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 .commonAccordion .panel .panel-title a:hover{
   color: #333;
 }
+.btn-main {
+  width: 200px;
+}
+
+.quantity-change {
+  margin: 0 5px;
+  /* Добавьте дополнительные стили по вашему усмотрению */
+}
+

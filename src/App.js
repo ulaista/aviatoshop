@@ -12,8 +12,10 @@ import NavigationBar from "./components/NavigationBar";
 import About from "./pages/AboutUs";
 import Footer from "./components/Footer";
 import ContactUs from "./pages/ContactUs";
+import ProductCategory from "./components/shopComponents/ProductCategory";
 import { ProductsProvider } from "./ProductsContext";
 import { CartProvider } from "./CartContext";
+import { TrendyProdProvider } from "./TrendyProductsContext";
 
 // Styles start
 import "./plugins/themefisher-font/style.css";
@@ -39,9 +41,9 @@ class App extends React.Component {
         <Header />
         <NavigationBar />
         <ProductsProvider>
+        <TrendyProdProvider>
         <CartProvider>
 
-        {/* <Router> */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about-as" element={<About />} />
@@ -49,12 +51,14 @@ class App extends React.Component {
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/404" element={<Page404 />} />
-            <Route path="/product-single" element={<ProductSingle />} />
+            <Route path="product/:id/*" element={<ProductSingle />} />
+            <Route path="/category/:categoryId" element={<ProductCategory />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/delivery" element={<Delivery />} />
           </Routes>
-        {/* </Router> */}
+
         </CartProvider>
+        </TrendyProdProvider>
         </ProductsProvider>
         <Footer />
         </BrowserRouter>

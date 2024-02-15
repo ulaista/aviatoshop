@@ -19,6 +19,30 @@ function Cart() {
     dispatch({ type: "CLEAR_CART" });
   };
 
+  const decreaseQuantity = (product) => () => {
+    const item = cart.find((item) => item.id === product.id);
+    if (item && item.quantity === 1) {
+      dispatch({ type: "REMOVE_ITEM", payload: product.id });
+    } else {
+      dispatch({ type: "DECREASE_QUANTITY", payload: product.id });
+    }
+  };
+
+  if (cart.length === 0) {
+    return (
+      <div>
+        <PageHeader />
+        <div class="page-wrapper">
+          <div class="cart shopping">
+            <div class="container">
+              <h2>{t('cart_empty')}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <PageHeader />
@@ -29,7 +53,7 @@ function Cart() {
               <div class="col-md-8 col-md-offset-2">
                 <div class="block">
                   <div class="product-list">
-                    <form method="post">
+                    <form method="">
                       <table class="table">
                         <thead>
                           <tr>
@@ -49,8 +73,12 @@ function Cart() {
                                     <a href="#!">{getLocalizedField(item, "title")}</a>
                                   </div>
                                 </td>
-                                <td class="">{item.quantity}</td>
-                                <td class="">${item.price * item.quantity}</td>
+                                <td>
+                                  <button class="quantity-change" onClick={decreaseQuantity(item)}>-</button>
+                                  {item.quantity}
+                                  <button class="quantity-change" onClick={() => dispatch({ type: "INCREASE_QUANTITY", payload: item.id })}>+</button>
+                                </td>                                
+                                <td class="">{item.price * item.quantity}{' '}₼</td>
                                 <td class="">
                                   <button
                                     class="product-remove"

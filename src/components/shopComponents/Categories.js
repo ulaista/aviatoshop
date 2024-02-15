@@ -1,135 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import instanceApi from '../../axiosConfig'; 
+import { Link } from 'react-router-dom';
+
 
 function Categories() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    instanceApi.get('/categories/')
+      .then((response) => {
+        setCategories(response.data);
+      })
+      .catch((error) => console.error("Ошибка загрузки категорий:", error));
+  }, []);
+
+  const getCategoryName = (category) => {
+    const language = i18n.language;
+    return language === 'ru' ? category.name_ru : category.name_az;
+  };
+
   return (
     <div>
-        <div className="widget product-category">
-          <h4 className="widget-title">{t('category')}</h4>
-          <div
-            className="panel-group commonAccordion"
-            id="accordion"
-            role="tablist"
-            aria-multiselectable="true"
-          >
-            <div className="panel panel-default">
-              <div className="panel-heading" role="tab" id="headingOne">
+      <div className="widget product-category">
+        <h4 className="widget-title">{t('category')}</h4>
+        <div className="panel-group commonAccordion" id="accordion" role="tablist" aria-multiselectable="true">
+          {categories.map((category, index) => (
+            <div className="panel panel-default" key={category.id}>
+              <div className="panel-heading" role="tab" id={`heading${index}`}>
                 <h4 className="panel-title">
-                  <a
-                    className="collapsed"
-                    role="button"
-                    data-toggle="collapse"
-                    data-parent="#accordion"
-                    href="#collapseOne"
-                    aria-expanded="false"
-                    aria-controls="collapseOne"
-                  >
-                    {t('shoes')}
-                  </a>
+                  <Link to={`/category/${category.id}`}>
+                    {getCategoryName(category)}
+                  </Link>
                 </h4>
               </div>
-              <div
-                id="collapseOne"
-                className="panel-collapse collapse"
-                role="tabpanel"
-                aria-labelledby="headingOne"
-              >
-                <div className="panel-body">
-                  <ul>
-                    <li>
-                      <a href="#!">{t("brand_&_twist")}</a>
-                    </li>
-                    <li>
-                      <a href="#!">{t('shoe_color')}</a>
-                    </li>
-                    <li>
-                      <a href="#!">{t('shoe_color')}</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
-            <div className="panel panel-default">
-              <div className="panel-heading" role="tab" id="headingTwo">
-                <h4 className="panel-title">
-                  <a
-                    className="collapsed"
-                    role="button"
-                    data-toggle="collapse"
-                    data-parent="#accordion"
-                    href="#collapseTwo"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
-                  >
-                    {t('duty_wear')}
-                  </a>
-                </h4>
-              </div>
-              <div
-                id="collapseTwo"
-                className="panel-collapse collapse"
-                role="tabpanel"
-                aria-labelledby="headingTwo"
-              >
-                <div className="panel-body">
-                  <ul>
-                    <li>
-                      <a href="#!">{t("brand_&_twist")}</a>
-                    </li>
-                    <li>
-                      <a href="#!">{t('shoe_color')}</a>
-                    </li>
-                    <li>
-                      <a href="#!">{t('shoe_color')}</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="panel panel-default">
-              <div className="panel-heading" role="tab" id="headingThree">
-                <h4 className="panel-title">
-                  <a
-                    className="collapsed"
-                    role="button"
-                    data-toggle="collapse"
-                    data-parent="#accordion"
-                    href="#collapseThree"
-                    aria-expanded="false"
-                    aria-controls="collapseThree"
-                  >
-                    {t('workout_shoes')}
-                  </a>
-                </h4>
-              </div>
-              <div
-                id="collapseThree"
-                className="panel-collapse collapse"
-                role="tabpanel"
-                aria-labelledby="headingThree"
-              >
-                <div className="panel-body">
-                  <ul>
-                    <li>
-                      <a href="#!">{t("brand_&_twist")}</a>
-                    </li>
-                    <li>
-                      <a href="#!">{t('shoe_color')}</a>
-                    </li>
-                    <li>
-                      <a href="#!">{t("gladian_shoes")}</a>
-                    </li>
-                    <li>
-                      <a href="#!">{t("swis_shoes")}</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+    </div>
   );
 }
 

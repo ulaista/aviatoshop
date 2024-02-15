@@ -16,6 +16,16 @@ function cartReducer(state, action) {
       }
       return [...state, { ...action.payload, quantity: 1 }];
 
+    case 'INCREASE_QUANTITY':
+      return state.map(item =>
+        item.id === action.payload ? { ...item, quantity: item.quantity + 1 } : item
+      );
+
+    case 'DECREASE_QUANTITY':
+      return state.map(item =>
+        item.id === action.payload ? { ...item, quantity: Math.max(item.quantity - 1, 1) } : item
+      );
+
     case 'REMOVE_ITEM':
       return state.filter(item => item.id !== action.payload);
 

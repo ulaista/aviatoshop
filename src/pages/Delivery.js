@@ -12,7 +12,7 @@ function Delivery() {
           <div class="container">
             <div class="row">
               <div class="col-md-8">
-                <div class="block billing-details">
+                {/* <div class="block billing-details">
                   <h4 class="widget-title">{t('bil_details')}</h4>
                   <form class="checkout-form">
                     <div class="form-group">
@@ -71,7 +71,7 @@ function Delivery() {
                      {t('place_order')}
                     </a>
                   </form>
-                </div>
+                </div> */}
                 
                 {/* <div class="block">
                   <h4 class="widget-title">Payment Method</h4>

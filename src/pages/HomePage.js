@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "../components/homeComponents/Slider";
 import ProductCategory from "../components/homeComponents/ProductCategory";
 import TrendyProducts from "../components/homeComponents/TrendyProducts";
-import Product from "../components/shopComponents/Product";
+// import Product from "../components/shopComponents/Product";
 import VievUsInst from "../components/shopComponents/VievUsInst";
 
 function HomePage() {
@@ -13,7 +13,7 @@ function HomePage() {
       <section className="products section bg-gray">
         <div className="container">
           <TrendyProducts />
-          <Product />
+          {/* <Product /> */}
         </div>
       </section>
       <VievUsInst />

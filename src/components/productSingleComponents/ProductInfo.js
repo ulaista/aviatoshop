@@ -1,18 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import instanceApi from '../../axiosConfig';
+import { useParams } from "react-router-dom";
+import { useProducts } from "../../ProductsContext";
 
 
 
-function ProductInfo() {
+function ProductInfo({ productId }) {
   const { t } = useTranslation();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    if (productId) {
+      instanceApi.get(`/product/${productId}/`)
+        .then((response) => {
+          setProduct(response.data);
+        })
+        .catch((error) => {
+          console.error("Ошибка при загрузке информации о продукте:", error);
+        });
+    }
+  }, [productId]);
+
+  if (!product) {
+    console.log(product)
+    return <div>Загрузка...</div>;
+  }
 
   return (
     <>
     <div>
-      <div className="col-md-7">
+    <div className="col-md-7">
         <div className="single-product-details">
-          <h2>Eclipse Crossbody</h2>
-          <p className="product-price">$300</p>
+          {/* <h2>{getLocalizedField(product, "title")}</h2> */}
+          <p className="product-price">{product.price} ₼</p>
 
           <p className="product-description mt-20">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum

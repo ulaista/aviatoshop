@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import instanceApi from './axiosConfig';
+// import axios from 'axios';
 
 const ProductsContext = createContext();
 
@@ -11,7 +12,7 @@ export const ProductsProvider = ({ children }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/products/?format=json');
+                const response = await instanceApi.get('/products/');
                 setProducts(response.data);
             } catch (error) {
                 console.error("Ошибка при получении данных о продуктах:", error);

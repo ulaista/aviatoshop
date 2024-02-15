@@ -10,7 +10,7 @@
     "about": "Haqqımızda",
     "faq": "FAQ",
     "faq_long": "Tez-tez verilən suallar",
-    "clothes": "Geyim",
+    "clothes_in_trend": "İndi trenddədir",
     "posts": "bizi sosial mediada tapın",
     "polit": "MƏXFİLİK SİYASƏTİ",
     "category_content1": "Təbii materiallardan və unikal naxışlardan istifadə edirik.",
@@ -55,5 +55,6 @@
     "item_quantity": "Məhsulun miqdarı",
     "total_price": "Ümumi qiymət",
     "void_cart": "Qutuni boşaltın",
-    "arrange": "Rəsmiləşdirin"
+    "arrange": "Rəsmiləşdirin",
+    "cart_empty": "Hələlik burada heç nə yoxdur..."
 }
