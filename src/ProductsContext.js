@@ -11,7 +11,7 @@ export const ProductsProvider = ({ children }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/products/?format=json');
+                const response = await axios.get('http://185.154.193.112/api/products/?format=json');
                 setProducts(response.data);
             } catch (error) {
                 console.error("Ошибка при получении данных о продуктах:", error);

@@ -8,7 +8,7 @@ import { getLocalizedField } from '../../utils/localizedfield';
 function Product() {
   const { t } = useTranslation();
   const { dispatch } = useCart();
-  const photos = "http://localhost:8000/photos";
+  const photos = "http://185.154.193.112/photos";
   const { products, error } = useProducts();
 
   if (error) {
