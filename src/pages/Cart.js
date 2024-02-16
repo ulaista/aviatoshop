@@ -3,13 +3,22 @@ import PageHeader from "../components/cartComponents/PageHeader";
 import { useCart } from "../CartContext";
 import { useTranslation } from "react-i18next";
 import { getLocalizedField } from '../utils/localizedfield';
+import instanceApi from '../axiosConfig';
+import axios from 'axios';
 
 
 function Cart() {
 
   const { t } = useTranslation();
   const { cart, dispatch } = useCart();
-  const photos = "http://localhost:8000/photos";
+  // const photos = instanceApi.get(`/photos/`)
+  const photos = 'http://127.0.0.1:8000/photos/'
+
+  const getphotos = () => {
+    axios.get('http://127.0.0.1:8000/photos/')
+      .then(response => response.data)
+      .catch(error => console.log(error));
+  }
 
   const removeFromCart = (id) => {
     dispatch({ type: "REMOVE_ITEM", payload: id });
@@ -42,7 +51,7 @@ function Cart() {
       </div>
     );
   }
-
+  console.log(getphotos())
   return (
     <div>
       <PageHeader />

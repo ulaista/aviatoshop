@@ -51,7 +51,7 @@ class App extends React.Component {
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/404" element={<Page404 />} />
-            <Route path="product/:id/*" element={<ProductSingle />} />
+            <Route path="/product/:id" element={<ProductSingle />} />
             <Route path="/category/:categoryId" element={<ProductCategory />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/delivery" element={<Delivery />} />

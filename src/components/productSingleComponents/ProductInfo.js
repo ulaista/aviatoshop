@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import instanceApi from '../../axiosConfig';
 import { useParams } from "react-router-dom";
 import { useProducts } from "../../ProductsContext";
+import { getLocalizedField } from "../../utils/localizedfield";
 
 
 
@@ -32,21 +33,13 @@ function ProductInfo({ productId }) {
     <div>
     <div className="col-md-7">
         <div className="single-product-details">
-          {/* <h2>{getLocalizedField(product, "title")}</h2> */}
+          <h2>{getLocalizedField(product, "title")}</h2>
           <p className="product-price">{product.price} ₼</p>
 
           <p className="product-description mt-20">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum
-            ipsum dicta quod, quia doloremque aut deserunt commodi quis. Totam a
-            consequatur beatae nostrum, earum consequuntur? Eveniet consequatur
-            ipsum dicta recusandae.
+            {getLocalizedField(product, "short_description")}
           </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt,
-            velit, sunt temporibus, nulla accusamus similique sapiente tempora,
-            at atque cumque assumenda minus asperiores est esse sequi dolore
-            magnam. Debitis, explicabo.
-          </p>
+          <div dangerouslySetInnerHTML={{ __html: getLocalizedField(product, "full_description") }} />
           <div className="color-swatches">
             <span>{t('color')}</span>
             <ul>

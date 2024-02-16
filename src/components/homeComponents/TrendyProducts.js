@@ -1,34 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTrending } from "../../TrendyProductsContext";
 import { useCart } from "../../CartContext";
 import { Row, Col } from "react-bootstrap";
 import { getLocalizedField } from "../../utils/localizedfield";
+import Message from "../Message";
 
 function TrendyProducts() {
   const { t } = useTranslation();
   const { cart, dispatch } = useCart();
   const photos = "http://localhost:8000/photos";
   const { trending, error } = useTrending();
+  const [message, setMessage] = useState("");
 
   const isInCart = (product) => cart.find((item) => item.id === product.id);
 
   const addToCart = (product) => () => {
     if (!isInCart(product)) {
       dispatch({ type: "ADD_ITEM", payload: { ...product, quantity: 1 } });
+      setMessage(`Продукт "${getLocalizedField(product, "title")}" добавлен в корзину.`); 
     }
   };
 
   const increaseQuantity = (product) => () => {
     dispatch({ type: "INCREASE_QUANTITY", payload: product.id });
+    setMessage(`Количество "${getLocalizedField(product, "title")}" увеличено.`);
   };
 
   const decreaseQuantity = (product) => () => {
     const item = cart.find((item) => item.id === product.id);
     if (item && item.quantity === 1) {
       dispatch({ type: "REMOVE_ITEM", payload: product.id });
+      setMessage(`Продукт "${getLocalizedField(product, "title")}" удален из корзины.`);
     } else {
       dispatch({ type: "DECREASE_QUANTITY", payload: product.id });
+      setMessage(`Количество "${getLocalizedField(product, "title")}" уменьшено.`);
     }
   };
 
@@ -44,13 +50,13 @@ function TrendyProducts() {
     const item = cart.find((item) => item.id === productId);
     return item ? item.quantity : 0;
   };
-
   return (
     <>
       <div>
         <div className="row">
           <div className="title text-center">
             <h2>{t("clothes_in_trend")}</h2>
+            {message && <Message variant="success">{message}</Message>}
           </div>
         </div>
       </div>
@@ -58,12 +64,13 @@ function TrendyProducts() {
         {trending.map((product) => {
           const imageUrl = `${photos}${product.main_photo}`;
           // const cartItem = isInCart(product);
+          const hasSale = product.sale > 0;
           return (
             <Col key={product.id} sm={12} md={6} lg={3} xl={3}>
               <div className="product-item">
                 <a href="/product-single">
                   <div className="product-thumbi">
-                    <span className="bage">Sale</span>
+                   {hasSale && <span className="bage">{product.sale}% Off</span>}
                     <img
                       className="img-responsive"
                       src={imageUrl}

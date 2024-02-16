@@ -51,19 +51,21 @@ function Product() {
       {products.map((product) => {
         const imageUrl = `${photos}${product.main_photo}`;
         // const cartItem = isInCart(product);
+        const hasSale = product.sale > 0;
+
         return (
           <Col key={product.id} sm={12} md={6} lg={3} xl={3}>
             <div className="product-item">
               <Link to={`/product/${product.id}/`}>
                 <div className="product-thumbi">
-                  <span className="bage">Sale</span>
+                  {hasSale && <span className="bage">{product.sale}% Off</span>}
                   <img
                     className="img-responsive"
                     src={imageUrl}
                     alt="product-img"
                   />
                 </div>
-              
+                </Link>
               <div className="product-content">
                 <h4>
                   <a href="product-single">
@@ -97,7 +99,6 @@ function Product() {
                   </button>
                 )}
               </div>
-              </Link>
             </div>
           </Col>
         );
