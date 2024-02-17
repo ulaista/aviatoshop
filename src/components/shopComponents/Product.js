@@ -1,35 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useProducts } from "../../ProductsContext";
 import { useCart } from "../../CartContext";
 import { Row, Col } from "react-bootstrap";
 import { getLocalizedField } from "../../utils/localizedfield";
 import { Link } from "react-router-dom";
+import instanceApi from "../../axiosConfig";
+import Message from "../Message";
 
-function Product() {
+
+function Product({ selectedCategory }) {
   const { t } = useTranslation();
   const { cart, dispatch } = useCart();
   const photos = "http://localhost:8000/photos";
-  const { products, error } = useProducts();
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [message, setMessage] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
 
+  const showMessageWithTimeout = (message) => {
+    setMessage(message);
+    setShowMessage(true);
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 1500); 
+  };
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        let url = '/products/';
+        if (selectedCategory) {
+          url = `/products/category/${selectedCategory}/`;
+        }
+        const response = await instanceApi.get(url);
+        setProducts(response.data);
+      } catch (error) {
+        setError(error);
+      }
+    };
+  
+    fetchProducts();
+  }, [selectedCategory]); 
+  
+  
   const isInCart = (product) => cart.find((item) => item.id === product.id);
 
   const addToCart = (product) => () => {
     if (!isInCart(product)) {
       dispatch({ type: "ADD_ITEM", payload: { ...product, quantity: 1 } });
+      showMessageWithTimeout(`Продукт "${getLocalizedField(product, "title")}" добавлен в корзину.`);
     }
   };
 
   const increaseQuantity = (product) => () => {
     dispatch({ type: "INCREASE_QUANTITY", payload: product.id });
+    showMessageWithTimeout(`Количество "${getLocalizedField(product, "title")}" увеличено.`);
   };
 
   const decreaseQuantity = (product) => () => {
     const item = cart.find((item) => item.id === product.id);
     if (item && item.quantity === 1) {
       dispatch({ type: "REMOVE_ITEM", payload: product.id });
+      showMessageWithTimeout(`Продукт "${getLocalizedField(product, "title")}" удален из корзины.`);
     } else {
       dispatch({ type: "DECREASE_QUANTITY", payload: product.id });
+      showMessageWithTimeout(`Количество "${getLocalizedField(product, "title")}" уменьшено.`);
     }
   };
 
@@ -70,6 +106,7 @@ function Product() {
                 <h4>
                   <a href="product-single">
                     {getLocalizedField(product, "title")}
+                    {message && <Message variant="success" show={showMessage}>{message}</Message>}
                   </a>
                 </h4>
              

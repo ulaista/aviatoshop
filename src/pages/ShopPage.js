@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PageHeader from "../components/shopComponents/PageHeader";
 import Categories from "../components/shopComponents/Categories";
 import Product from "../components/shopComponents/Product";
@@ -6,6 +6,7 @@ import { Row, Col } from "react-bootstrap";
 
 
 function ShopPage() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
   return (
     <div>
       <PageHeader />
@@ -13,10 +14,10 @@ function ShopPage() {
         <div className="container">
           <Row>
             <Col md={3}>
-              <Categories />
+              <Categories onCategorySelect={setSelectedCategory} selectedCategory={selectedCategory} />
             </Col>
             <Col md={9}>
-              <Product />
+              <Product selectedCategory={selectedCategory} />
             </Col>
           </Row>
         </div>

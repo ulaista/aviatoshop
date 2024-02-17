@@ -4,9 +4,10 @@ import instanceApi from '../../axiosConfig';
 import { Link } from 'react-router-dom';
 
 
-function Categories() {
+function Categories({ onCategorySelect, selectedCategory }) {
   const { t, i18n } = useTranslation();
   const [categories, setCategories] = useState([]);
+
 
   useEffect(() => {
     instanceApi.get('/categories/')
@@ -30,9 +31,26 @@ function Categories() {
             <div className="panel panel-default" key={category.id}>
               <div className="panel-heading" role="tab" id={`heading${index}`}>
                 <h4 className="panel-title">
-                  <Link to={`/category/${category.id}`}>
+                  {/* <Link to={`/category/${category.id}`}> */}
+                  <a
+                    onClick={() => {
+                      if (selectedCategory === category.id) {
+                        onCategorySelect(null); // Сбросить фильтр, если категория уже была выбрана
+                      } else {
+                        onCategorySelect(category.id); // Установить выбранную категорию
+                      }
+                    }}
+                    className="collapsed"
+                    role="button"
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    href="#collapseOne"
+                    aria-expanded="false"
+                    aria-controls="collapseOne"
+                  >
                     {getCategoryName(category)}
-                  </Link>
+                  {/* </Link> */}
+                  </a>
                 </h4>
               </div>
             </div>
