@@ -5,14 +5,17 @@ import { useCart } from "../../CartContext";
 import { Row, Col } from "react-bootstrap";
 import { getLocalizedField } from "../../utils/localizedfield";
 import Message from "../Message";
+import instanceApi from "../../axiosConfig";
 
 function TrendyProducts() {
   const { t } = useTranslation();
   const { cart, dispatch } = useCart();
-  const photos = "http://localhost:8000/photos";
   const { trending, error } = useTrending();
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
+
+  const photos = instanceApi.defaults.baseURL + "/photos";
+
 
   const showMessageWithTimeout = (message) => {
     setMessage(message);
