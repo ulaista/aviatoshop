@@ -5,7 +5,7 @@ import { useCart } from "../../CartContext";
 import { Row, Col } from "react-bootstrap";
 import { getLocalizedField } from "../../utils/localizedfield";
 import Message from "../Message";
-import instanceApi from "../../axiosConfig";
+import serverUrl from "../../axiosConfig";
 
 function TrendyProducts() {
   const { t } = useTranslation();
@@ -13,8 +13,6 @@ function TrendyProducts() {
   const { trending, error } = useTrending();
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
-
-  const photos = instanceApi.defaults.baseURL + "/photos";
 
 
   const showMessageWithTimeout = (message) => {
@@ -75,7 +73,7 @@ function TrendyProducts() {
       </div>
       <Row>
         {trending.map((product) => {
-          const imageUrl = `${photos}${product.main_photo}`;
+          const imageUrl = `${serverUrl}${product.main_photo}`;
           // const cartItem = isInCart(product);
           const hasSale = product.sale > 0;
           return (

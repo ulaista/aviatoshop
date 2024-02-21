@@ -3,7 +3,7 @@ import PageHeader from "../components/cartComponents/PageHeader";
 import { useCart } from "../CartContext";
 import { useTranslation } from "react-i18next";
 import { getLocalizedField } from '../utils/localizedfield';
-import instanceApi from '../axiosConfig';
+import serverUrl from "../axiosConfig";
 import axios from 'axios';
 
 
@@ -11,7 +11,6 @@ function Cart() {
 
   const { t } = useTranslation();
   const { cart, dispatch } = useCart();
-  const photos = instanceApi.defaults.baseURL + "/photos";
 
 
   const removeFromCart = (id) => {
@@ -66,8 +65,8 @@ function Cart() {
                         </thead>
                         <tbody>
                           {cart.map((item) => {
-                            const imageUrl = `${photos}${item.main_photo}`;
-                            return (
+          const imageUrl = `${serverUrl}${item.main_photo}`;
+          return (
                               <tr class="" key={item.id}>
                                 <td class="">
                                   <div class="product-info">
