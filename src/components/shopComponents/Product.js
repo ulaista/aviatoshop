@@ -7,7 +7,7 @@ import { getLocalizedField } from "../../utils/localizedfield";
 import { Link } from "react-router-dom";
 import Message from "../Message";
 import instanceApi from "../../axiosConfig";
-import serverUrl from "../../axiosConfig";
+import { serverURL } from "../../axiosConfig";
 
 
 
@@ -89,7 +89,7 @@ function Product({ selectedCategory }) {
   return (
     <Row>
       {products.map((product) => {
-          const imageUrl = `${serverUrl}${product.main_photo}`;
+          const imageUrl = `${serverURL}${product.main_photo}`;
           // const cartItem = isInCart(product);
         const hasSale = product.sale > 0;
 
