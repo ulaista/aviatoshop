@@ -116,29 +116,32 @@ function Product({ selectedCategory }) {
              
                 <p className="price">{product.price} ₼</p>
                 {getCartItem(product.id) > 0 ? (
-                  <div className="quantity-controls">
+                    <div className="quantity-controls">
+                      <button
+                        onClick={decreaseQuantity(product)}
+                        className="btn btn-outline-secondary"
+                      >
+                        −
+                      </button>
+                      <span className="quan_item">
+                        {" "}
+                        {getCartItem(product.id)}{" "}
+                      </span>
+                      <button
+                        onClick={increaseQuantity(product)}
+                        className="btn btn-outline-secondary"
+                      >
+                        +
+                      </button>
+                    </div>
+                  ) : (
                     <button
-                      onClick={decreaseQuantity(product)}
-                      className="btn btn-outline-secondary"
+                      onClick={addToCart(product)}
+                      className="btn btn-main"
                     >
-                      −
+                      {t("add_cart")}
                     </button>
-                    <span> {getCartItem(product.id)} </span>
-                    <button
-                      onClick={increaseQuantity(product)}
-                      className="btn btn-outline-secondary"
-                    >
-                      +
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    onClick={addToCart(product)}
-                    className="btn btn-main mt-20"
-                  >
-                    {t("add_cart")}
-                  </button>
-                )}
+                  )}
               </div>
             </div>
           </Col>

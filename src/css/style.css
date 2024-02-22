@@ -2317,3 +2317,13 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   /* Добавьте дополнительные стили по вашему усмотрению */
 }
 
+.quantity-controls, .btn-main {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quan_item{
+  margin: 0 10px;
+}

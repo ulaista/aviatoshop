@@ -137,7 +137,10 @@ function ProductInfo({ productId }) {
                       >
                         −
                       </button>
-                      <span> {getCartItem(product.id)} </span>
+                      <span className="quan_item">
+                        {" "}
+                        {getCartItem(product.id)}{" "}
+                      </span>
                       <button
                         onClick={increaseQuantity(product)}
                         className="btn btn-outline-secondary"
@@ -148,7 +151,7 @@ function ProductInfo({ productId }) {
                   ) : (
                     <button
                       onClick={addToCart(product)}
-                      className="btn btn-main mt-20"
+                      className="btn btn-main"
                     >
                       {t("add_cart")}
                     </button>
