@@ -83,28 +83,23 @@ function ProductInfo({ productId }) {
           <p className="product-description mt-20">
             {getLocalizedField(product, "short_description")}
           </p>
-          <div dangerouslySetInnerHTML={{ __html: getLocalizedField(product, "full_description") }} />
+          {/* <div dangerouslySetInnerHTML={{ __html: getLocalizedField(product, "full_description") }} /> */}
           <div className="color-swatches">
             <span>{t('color')}</span>
             <ul>
-              <li>
-                <a href="#!" className="swatch-violet"></a>
-              </li>
-              <li>
-                <a href="#!" className="swatch-black"></a>
-              </li>
-              <li>
-                <a href="#!" className="swatch-cream"></a>
-              </li>
+              {product.color.map((color) => (
+                <li key={color.id}>
+                  <a href="#!" style={{ backgroundColor: color.hex_code }}></a>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="product-size">
             <span>{t('size')}</span>
             <select className="form-control">
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
+              {product.size.map((size) => (
+                <option key={size.id} value={size.name}>{size.name}</option>
+              ))}
             </select>
           </div>
           <div className="product-quantity">
@@ -113,7 +108,7 @@ function ProductInfo({ productId }) {
               <input
                 id="product-quantity"
                 type="text"
-                value="0"
+                value={product.quantity}
                 name="product-quantity"
               />
             </div>
@@ -122,10 +117,7 @@ function ProductInfo({ productId }) {
             <span>{t('category')}</span>
             <ul>
               <li>
-                <a href="/product-single">{t('product')}</a>
-              </li>
-              <li>
-                <a href="/product-single">Soap</a>
+                <a href="#">{getLocalizedField(product.category, "name")}</a>
               </li>
             </ul>
           </div>

@@ -40,10 +40,10 @@ function ProductSingle() {
         <div className="container">
           <div className="row mt-20">
             <PageHeader />
-            <Slider />
+            <Slider productId={productId} />
             <ProductInfo productId={productId} />
           </div>
-          <Details />
+          <Details productId={productId} />
           <div className="title text-center">
             <h2>{t('related')}</h2>
           </div>
