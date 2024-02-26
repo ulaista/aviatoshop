@@ -2327,3 +2327,40 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 .quan_item{
   margin: 0 10px;
 }
+
+.modal.display-block {
+  display: block; /* Показать модальное окно */
+}
+
+.modal.display-none {
+  display: none; /* Скрыть модальное окно */
+}
+
+.search-dropdown {
+  position: relative;
+}
+
+.search-results-dropdown {
+  position: absolute;
+  width: 100%;
+  max-height: 300px; /* Вы можете изменить это значение в соответствии с дизайном */
+  overflow-y: auto; /* Предусмотреть прокрутку, если результатов много */
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000; /* Убедитесь, что список будет поверх других элементов */
+}
+
+.search-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Разделительные линии между элементами */
+  cursor: pointer;
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+.search-item:hover {
+  background-color: #f2f2f2;
+}
+

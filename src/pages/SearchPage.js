@@ -1,26 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
-import { useProducts } from "../../ProductsContext";
-import { useCart } from "../../CartContext";
+import instanceApi from '../axiosConfig';
+import { Link } from 'react-router-dom';
+import { serverURL } from '../axiosConfig'; // Assuming this is your base URL for images
+import { getLocalizedField } from '../utils/localizedfield'; // Import if you need localization
 import { Row, Col } from "react-bootstrap";
-import { getLocalizedField } from "../../utils/localizedfield";
-import { Link } from "react-router-dom";
-import Message from "../Message";
-import instanceApi from "../../axiosConfig";
-import { serverURL } from "../../axiosConfig";
+import { useCart } from "../CartContext";
+import Message from "../components/Message";
 
 
 
 
-function Product({ selectedCategory }) {
+function SearchPage() {
   const { t } = useTranslation();
   const { cart, dispatch } = useCart();
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
+  const location = useLocation();
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
 
-
+  useEffect(() => {
+    const query = new URLSearchParams(location.search).get('query');
+    if (query) {
+      instanceApi.get(`/products/search/?q=${encodeURIComponent(query)}`)
+        .then(response => {
+          setProducts(response.data);
+        }).catch(error => console.error("Search error:", error));
+    }
+  }, [location.search]);
 
   const showMessageWithTimeout = (message) => {
     setMessage(message);
@@ -30,24 +39,6 @@ function Product({ selectedCategory }) {
     }, 1500); 
   };
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        let url = '/products/';
-        if (selectedCategory) {
-          url = `/products/category/${selectedCategory}/`;
-        }
-        const response = await instanceApi.get(url);
-        setProducts(response.data);
-      } catch (error) {
-        setError(error);
-      }
-    };
-  
-    fetchProducts();
-  }, [selectedCategory]); 
-  
-  
   const isInCart = (product) => cart.find((item) => item.id === product.id);
 
   const addToCart = (product) => () => {
@@ -78,16 +69,17 @@ function Product({ selectedCategory }) {
   }
 
   if (!products) {
-    return <div>Загрузка...</div>;
+    return <div>Не найдено...</div>;
   }
-
   const getCartItem = (productId) => {
     const item = cart.find((item) => item.id === productId);
     return item ? item.quantity : 0;
   };
 
   return (
-    <Row>
+    <div className="container">
+      <h2>Результаты поиска</h2>
+      <Row>
       {products.map((product) => {
           const imageUrl = `${serverURL}${product.main_photo}`;
           // const cartItem = isInCart(product);
@@ -148,7 +140,8 @@ function Product({ selectedCategory }) {
         );
       })}
     </Row>
+    </div>
   );
 }
 
-export default Product;
+export default SearchPage;

@@ -6,6 +6,8 @@ import { Row, Col } from "react-bootstrap";
 import { getLocalizedField } from "../../utils/localizedfield";
 import Message from "../Message";
 import { serverURL } from "../../axiosConfig";
+import { Link } from "react-router-dom";
+
 
 function TrendyProducts() {
   const { t } = useTranslation();
@@ -89,7 +91,7 @@ function TrendyProducts() {
           return (
             <Col key={product.id} sm={12} md={6} lg={3} xl={3}>
               <div className="product-item">
-                <a href={`/product/${product.id}/`}>
+                <Link to={`/product/${product.title_en}/`}>
                   <div className="product-thumbi">
                     {hasSale && (
                       <span className="bage">{product.sale}% Off</span>
@@ -100,12 +102,12 @@ function TrendyProducts() {
                       alt="product-img"
                     />
                   </div>
-                </a>
+                </Link>
                 <div className="product-content">
                   <h4>
-                    <a href="product-single">
+                    <Link to={`/product/${product.title_en}/`}>
                       {getLocalizedField(product, "title")}
-                    </a>
+                    </Link>
                   </h4>
                   <p className="price">{product.price} ₼</p>
                   {getCartItem(product.id) > 0 ? (

@@ -28,6 +28,7 @@ import FaqPage from "./pages/FaqPage";
 import ShopPage from "./pages/ShopPage";
 import Page404 from "./pages/Page404";
 import HomePage from "./pages/HomePage";
+import SearchPage from './pages/SearchPage'; // Import the SearchPage component
 import ProductSingle from "./pages/ProductSingle";
 import Cart from "./pages/Cart";
 import Delivery from "./pages/Delivery";
@@ -46,12 +47,13 @@ class App extends React.Component {
 
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/search" element={<SearchPage />} /> 
             <Route path="/about-as" element={<About />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/404" element={<Page404 />} />
-            <Route path="/product/:id" element={<ProductSingle />} />
+            <Route path="/product/:productName" element={<ProductSingle />} />
             <Route path="/category/:categoryId" element={<ProductCategory />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/delivery" element={<Delivery />} />
