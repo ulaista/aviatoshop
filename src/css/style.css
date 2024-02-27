@@ -2364,3 +2364,13 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   background-color: #f2f2f2;
 }
 
+/* CSS */
+.image-fixed-size {
+  width: 100%; /* или конкретный размер, например 500px */
+  height: 600px; /* сохраняет пропорции изображения */
+}
+
+.image-fixed-size img{
+  width: 100%; /* или конкретный размер, например 500px */
+  height: 500px; /* сохраняет пропорции изображения */
+}

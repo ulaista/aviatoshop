@@ -54,7 +54,7 @@ function Cart() {
               <div class="col-md-8 col-md-offset-2">
                 <div class="block">
                   <div class="product-list">
-                    <form method="">
+                    {/* <form method=""> */}
                       <table class="table">
                         <thead>
                           <tr>
@@ -93,7 +93,7 @@ function Cart() {
                           })}
                         </tbody>
                       </table>
-                    </form>
+                    {/* </form> */}
                     <button class="btn btn-main pull-left" onClick={clearCart}>
                       {t('void_cart')}
                     </button>

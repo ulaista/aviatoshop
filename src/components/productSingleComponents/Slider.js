@@ -126,17 +126,14 @@ import { Carousel } from 'react-bootstrap';
 function Slider({ productId }) {
   const [mainPhoto, setMainPhoto] = useState('');
   const [photos, setPhotos] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0); // Индекс активного слайда
 
   useEffect(() => {
-
-    // Загрузка основного фото продукта
     const fetchMainPhoto = async () => {
       const response = await instanceApi.get(`/product/${productId}/`);
-      // Преобразование относительного пути в абсолютный URL
       setMainPhoto(serverURL + response.data.main_photo);
     };
 
-    // Загрузка дополнительных фото продукта
     const fetchPhotos = async () => {
       const response = await instanceApi.get(`/product/${productId}/photos/`);
       setPhotos(response.data);
@@ -148,43 +145,52 @@ function Slider({ productId }) {
     }
   }, [productId]);
 
+  // Функция для изменения активного слайда
+  const handleSelect = (selectedIndex, e) => {
+    // Проверка на допустимый диапазон индексов
+    if (selectedIndex < 0) {
+      selectedIndex = photos.length; // Возврат к последнему изображению, если индекс становится отрицательным
+    } else if (selectedIndex > photos.length) {
+      selectedIndex = 0; // Возврат к первому изображению, если индекс выходит за пределы
+    }
+    setActiveIndex(selectedIndex);
+  };
+  
+
   return (
     <div className="col-md-5">
       <div className="single-product-slider">
         <div id="carousel-custom" className="carousel slide" data-ride="carousel">
           <div className="carousel-outer">
-            {/* Динамически отображаемые слайды */}
-            <div className="carousel-inner">
+            <div className="carousel-inner image-fixed-size">
               {mainPhoto && (
-                <div className="item active">
-                  <Image src={mainPhoto} alt="" data-zoom-image={mainPhoto} />
+                <div className={`item ${activeIndex === 0 ? 'active' : ''}`}>
+                  <Image src={mainPhoto} alt="" data-zoom-image={mainPhoto} className="image-fixed-size" />
                 </div>
               )}
               {photos.map((photo, index) => (
-                <div className="item" key={index}>
-                  <Image src={photo.photo} alt="" data-zoom-image={photo.photo} />
+                <div className={`item ${activeIndex === index + 1 ? 'active' : ''}`} key={index}>
+                  <Image src={photo.photo} alt="" data-zoom-image={photo.photo} className="image-fixed-size" />
                 </div>
               ))}
             </div>
 
-            {/* Контролы для навигации */}
-            <a className="left carousel-control" href="#carousel-custom" data-slide="prev">
+            <a className="left carousel-control" href="#carousel-custom" data-slide="prev" onClick={() => handleSelect(activeIndex - 1)}>
               <i className="tf-ion-ios-arrow-left"></i>
             </a>
-            <a className="right carousel-control" href="#carousel-custom" data-slide="next">
+            <a className="right carousel-control" href="#carousel-custom" data-slide="next" onClick={() => handleSelect(activeIndex + 1)}>
               <i className="tf-ion-ios-arrow-right"></i>
             </a>
           </div>
 
-          {/* Индикаторы для слайдов */}
           <ol className="carousel-indicators">
             {mainPhoto && (
-              <li data-target="#carousel-custom" data-slide-to="0" className="active">
+              <li data-target="#carousel-custom" data-slide-to="0" className={activeIndex === 0 ? 'active' : ''} onClick={() => handleSelect(0)}>
                 <img src={mainPhoto} alt="" />
               </li>
             )}
             {photos.map((photo, index) => (
-              <li data-target="#carousel-custom" data-slide-to={index + 1} key={index}>
+              <li data-target="#carousel-custom" data-slide-to={index + 1} className={activeIndex === index + 1 ? 'active' : ''} key={index} onClick={() => handleSelect(index + 1)}>
                 <img src={photo.photo} alt="" />
               </li>
             ))}
@@ -196,4 +202,3 @@ function Slider({ productId }) {
 }
 
 export default Slider;
-
