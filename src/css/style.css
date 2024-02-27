@@ -2374,3 +2374,8 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   width: 100%; /* или конкретный размер, например 500px */
   height: 500px; /* сохраняет пропорции изображения */
 }
+
+.col-sm-12{
+  display: flex;
+  justify-content: center;
+}
