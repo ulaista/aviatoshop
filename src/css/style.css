@@ -501,7 +501,12 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 .commonAccordion .panel .panel-title a.collapsed:before, .commonAccordion-2 .panel .panel-title a.collapsed:before {
   content: "\f217";
 }
-
+@media (max-width: 770px) {
+  .widget {
+    padding-left: 27px;
+    padding-right: 27px;
+  }
+}
 .list-circle {
   padding-left: 20px;
 }
@@ -2316,9 +2321,20 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   margin: 0 5px;
   /* Добавьте дополнительные стили по вашему усмотрению */
 }
+.cart-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 440px) {
+  .cart-buttons {
+    display: block;
+  }
+}
 
 .quantity-controls, .btn-main {
   height: 50px;
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2378,4 +2394,10 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 .col-sm-12{
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 440px) {
+  .cart-right, .cart-left {
+    width: 100%;
+  }
 }

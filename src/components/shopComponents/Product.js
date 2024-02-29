@@ -96,7 +96,7 @@ function Product({ selectedCategory }) {
         return (
           <Col key={product.id} sm={12} md={6} lg={3} xl={3}>
             <div className="product-item">
-              <Link to={`/product/${product.title_en}/`}>
+              <Link to={`/product/${product.title_en}/`} onClick={() => window.scrollTo(0, 0)}>
                 <div className="product-thumbi">
                   {hasSale && <span className="bage">{product.sale}% Off</span>}
                   <img
@@ -108,7 +108,7 @@ function Product({ selectedCategory }) {
                 </Link>
               <div className="product-content">
                 <h4>
-                  <Link to={`/product/${product.title_en}/`}>
+                  <Link to={`/product/${product.title_en}/`} onClick={() => window.scrollTo(0, 0)}>
                     {getLocalizedField(product, "title")}
                     {message && <Message variant="success" show={showMessage}>{message}</Message>}
                   </Link>

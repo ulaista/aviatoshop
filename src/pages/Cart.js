@@ -94,12 +94,14 @@ function Cart() {
                         </tbody>
                       </table>
                     {/* </form> */}
-                    <button class="btn btn-main pull-left" onClick={clearCart}>
+                    <div class="cart-buttons">
+                    <button class="btn btn-main cart-right" onClick={clearCart}>
                       {t('void_cart')}
                     </button>
-                    <a href="delivery" class="btn btn-main pull-right">
+                    <a href="delivery" class="btn btn-main cart-left">
                       {t('arrange')}
                     </a>
+                    </div>
                   </div>
                 </div>
               </div>
