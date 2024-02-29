@@ -116,7 +116,7 @@ function Product({ selectedCategory }) {
              
                 <p className="price">{product.price} ₼</p>
                 {getCartItem(product.id) > 0 ? (
-                    <div className="quantity-controls">
+                    <div className="quantity-controls shop-quantity-controls">
                       <button
                         onClick={decreaseQuantity(product)}
                         className="btn btn-outline-secondary"
@@ -137,7 +137,7 @@ function Product({ selectedCategory }) {
                   ) : (
                     <button
                       onClick={addToCart(product)}
-                      className="btn btn-main"
+                      className="btn btn-main shop-btn-main"
                     >
                       {t("add_cart")}
                     </button>
