@@ -17,6 +17,7 @@ import { ProductsProvider } from "./ProductsContext";
 import { CartProvider } from "./CartContext";
 import { TrendyProdProvider } from "./TrendyProductsContext";
 
+
 // Styles start
 import "./plugins/themefisher-font/style.css";
 import "./plugins/bootstrap/css/bootstrap.min.css";
@@ -28,7 +29,8 @@ import FaqPage from "./pages/FaqPage";
 import ShopPage from "./pages/ShopPage";
 import Page404 from "./pages/Page404";
 import HomePage from "./pages/HomePage";
-import SearchPage from './pages/SearchPage'; // Import the SearchPage component
+import SearchPage from './pages/SearchPage'; 
+import CheckoutPage from "./pages/ArrangeForm";
 import ProductSingle from "./pages/ProductSingle";
 import Cart from "./pages/Cart";
 import Delivery from "./pages/Delivery";
@@ -50,6 +52,7 @@ class App extends React.Component {
             <Route path="/search" element={<SearchPage />} /> 
             <Route path="/about-as" element={<About />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/checkout" element={<CheckoutPage />}/>
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/404" element={<Page404 />} />

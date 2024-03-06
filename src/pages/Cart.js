@@ -1,5 +1,6 @@
 import React from "react";
 import PageHeader from "../components/cartComponents/PageHeader";
+import { Link } from 'react-router-dom';
 import { useCart } from "../CartContext";
 import { useTranslation } from "react-i18next";
 import { getLocalizedField } from '../utils/localizedfield';
@@ -98,9 +99,9 @@ function Cart() {
                     <button class="btn btn-main cart-right" onClick={clearCart}>
                       {t('void_cart')}
                     </button>
-                    <a href="delivery" class="btn btn-main cart-left">
+                    <Link to="/checkout" className="btn btn-main cart-left">
                       {t('arrange')}
-                    </a>
+                    </Link>
                     </div>
                   </div>
                 </div>
