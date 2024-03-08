@@ -66,8 +66,8 @@ function Cart() {
                         </thead>
                         <tbody>
                           {cart.map((item) => {
-          const imageUrl = `${serverURL}${item.main_photo}`;
-          return (
+                          const imageUrl = `${serverURL}${item.main_photo}`;
+                          return (
                               <tr class="" key={item.id}>
                                 <td class="">
                                   <div class="product-info">

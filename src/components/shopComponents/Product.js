@@ -94,7 +94,7 @@ function Product({ selectedCategory }) {
         const hasSale = product.sale > 0;
 
         return (
-          <Col key={product.id} sm={12} md={6} lg={3} xl={3}>
+          <Col key={product.id} xs={6} sm={6} md={4} lg={3} xl={3}>
             <div className="product-item">
               <Link to={`/product/${product.title_en}/`} onClick={() => window.scrollTo(0, 0)}>
                 <div className="product-thumbi">

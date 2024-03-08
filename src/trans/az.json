@@ -56,5 +56,7 @@
     "total_price": "Ümumi qiymət",
     "void_cart": "Qutuni boşaltın",
     "arrange": "Rəsmiləşdirin",
-    "cart_empty": "Hələlik burada heç nə yoxdur..."
+    "cart_empty": "Hələlik burada heç nə yoxdur...",
+    "arrange_form": "Çatdırılma qeydiyyatı",
+    "phone_number": "Telefon nömrəsi"
 }

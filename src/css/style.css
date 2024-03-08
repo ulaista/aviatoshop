@@ -2182,6 +2182,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 
 .contact-form {
   margin-bottom: 40px;
+  margin-top: 10px;
 }
 .contact-form .form-control {
   background-color: transparent;
@@ -2411,7 +2412,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   height: 500px; /* сохраняет пропорции изображения */
 }
 
-.col-sm-12{
+.col-sm-6{
   display: flex;
   justify-content: center;
 }
@@ -2425,3 +2426,7 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
 .img-responsive{
   height: 100%;
 }
+/* .product-info img{
+  height: 150px;
+  width: auto !important;
+} */

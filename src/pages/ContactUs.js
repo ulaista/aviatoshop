@@ -73,7 +73,7 @@ function ContactUs() {
                 </form>
               </div>
 
-              <div className="contact-details col-md-6">
+              {/* <div className="contact-details col-md-6">
                 <div className="google-map">
                   <div id="map"></div>
                 </div>
@@ -123,7 +123,7 @@ function ContactUs() {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
