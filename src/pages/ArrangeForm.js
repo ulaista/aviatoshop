@@ -23,16 +23,26 @@ function CheckoutPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const productDetailsText = cart.map(item =>
+      `Product ID: ${item.id}, Quantity: ${item.quantity}, Size: ${item.selectedSize}, Color: ${item.selectedColor}`
+    ).join('; ');
+
+    const finalMessage = `${customerInfo.message}\n\nDetails of ordered products:\n${productDetailsText}`;
+
+
     const products = cart.reduce((acc, item) => {
-      acc[item.id] = item.quantity;
+      acc[item.id] = item.quantity; // Сохраняем ID продукта как ключ и количество как значение
       return acc;
     }, {});
-    
+
     const submissionData = {
-      ...customerInfo,
-      products,
+      fullname: customerInfo.fullname,
+      phone_number: customerInfo.phone_number,
+      message: finalMessage,
+      address: customerInfo.address,
+      products, // Отправляем объект с продуктами
     };
-  
+
     instanceApi.post('/checkout/', submissionData)
       .then(response => {
         console.log("Order submitted successfully", response.data);
@@ -57,7 +67,7 @@ function CheckoutPage() {
                     <input
                       type="text"
                       className="form-control"
-                      name="full_name"
+                      name="fullname"
                       id="name"
                       placeholder={t('full_name')}
                       value={customerInfo.fullname}
@@ -100,6 +110,7 @@ function CheckoutPage() {
                       name="message"
                       id="message"
                       value={customerInfo.message}
+                      // value={cart.map(item => `${item.title} (Размер: ${item.selectedSize}, Цвет: ${item.selectedColor}, Кол-во: ${item.quantity})`).join(', ')}
                       onChange={handleChange}
                       required
                     ></textarea>
