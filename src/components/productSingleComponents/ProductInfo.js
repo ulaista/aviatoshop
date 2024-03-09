@@ -12,9 +12,6 @@ function ProductInfo({ productId }) {
   const { t } = useTranslation();
   const [product, setProduct] = useState(null);
   const { cart, dispatch } = useCart();
-  const [selectedSize, setSelectedSize] = useState('');
-  const [selectedColor, setSelectedColor] = useState('');
-  const [quantity, setQuantity] = useState(0);
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
 
@@ -23,9 +20,6 @@ function ProductInfo({ productId }) {
       instanceApi.get(`/product/${productId}/`)
         .then((response) => {
           setProduct(response.data);
-          setSelectedSize(response.data.size.length > 0 ? response.data.size[0].name : '');
-          setSelectedColor(response.data.color.length > 0 ? response.data.color[0].hex_code : '');
-   
         })
         .catch((error) => {
           console.error("Ошибка при загрузке информации о продукте:", error);
@@ -44,15 +38,11 @@ function ProductInfo({ productId }) {
 
   const isInCart = (product) => cart.find((item) => item.id === product.id);
 
-  const addToCart = () => {
-    const productToAdd = {
-      ...product,
-      quantity,
-      selectedSize,
-      selectedColor,
-    };
-    dispatch({ type: "ADD_ITEM", payload: productToAdd });
-    showMessageWithTimeout(`Продукт "${getLocalizedField(product, "title")}" добавлен в корзину.`);
+  const addToCart = (product) => () => {
+    if (!isInCart(product)) {
+      dispatch({ type: "ADD_ITEM", payload: { ...product, quantity: 1 } });
+      showMessageWithTimeout(`Продукт "${getLocalizedField(product, "title")}" добавлен в корзину.`);
+    }
   };
 
   const increaseQuantity = (product) => () => {
@@ -98,7 +88,7 @@ function ProductInfo({ productId }) {
             <span>{t('color')}</span>
             <ul>
               {product.color.map((color) => (
-                <li key={color.id} onClick={() => setSelectedColor(color.hex_code)}>
+                <li key={color.id}>
                   <a href="#!" style={{ backgroundColor: color.hex_code }}></a>
                 </li>
               ))}
@@ -106,7 +96,7 @@ function ProductInfo({ productId }) {
           </div>
           <div className="product-size">
             <span>{t('size')}</span>
-            <select className="form-control" value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
+            <select className="form-control">
               {product.size.map((size) => (
                 <option key={size.id} value={size.name}>{size.name}</option>
               ))}
@@ -117,10 +107,9 @@ function ProductInfo({ productId }) {
             <div className="product-quantity-slider">
               <input
                 id="product-quantity"
-                type="number"
+                type="text"
                 value={product.quantity}
                 name="product-quantity"
-                onChange={(e) => setQuantity(Number(e.target.value))} min="0"
               />
             </div>
           </div>
