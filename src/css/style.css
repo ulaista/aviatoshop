@@ -2430,3 +2430,8 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
   height: 150px;
   width: auto !important;
 } */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
